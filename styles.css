@@ -753,9 +753,10 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
 .member-stat strong { color: #FFD700; text-shadow: 0 0 4px #FFD700; }
 
 /* RESPONSIVE */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .two-col {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .nav-bar {
@@ -766,7 +767,7 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
     padding: 8px 14px;
     font-size: 13px;
     letter-spacing: 1px;
-    flex: 1;
+    flex: 1 1 auto;
     text-align: center;
     border-right: none;
     border-bottom: 1px solid #4400aa;
@@ -801,7 +802,7 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
   }
 
   .logo-window .window-content {
-    padding: 16px 10px;
+    padding: 12px 8px;
   }
 
   .title-bar {
@@ -818,5 +819,9 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
     width: 65px;
     font-size: 8px;
     padding: 4px 6px;
+  }
+
+  .page-wrap {
+    padding: 4px;
   }
 }
