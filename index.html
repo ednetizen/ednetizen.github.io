@@ -2,531 +2,104 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EXTREME CEREAL - THE MOST EXTREME CEREAL SITE ON THE WEB!!!</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background-color: #008080;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='10' height='10' fill='%23007070'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23007070'/%3E%3C/svg%3E");
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%A5%A3%3C/text%3E%3C/svg%3E"), auto;
-    overflow-x: hidden;
-  }
-
-  /* XP Window chrome */
-  .window {
-    background: #ECE9D8;
-    border: 2px solid #003087;
-    box-shadow: 2px 2px 0 #000, inset 1px 1px 0 #fff;
-    margin: 10px auto;
-  }
-
-  .title-bar {
-    background: linear-gradient(to bottom, #0A246A 0%, #3A6EA5 50%, #245ED8 51%, #3A6EA5 100%);
-    color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 4px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-
-  .title-bar-icon {
-    font-size: 14px;
-    margin-right: 4px;
-  }
-
-  .title-bar-buttons {
-    display: flex;
-    gap: 3px;
-  }
-
-  .tb-btn {
-    width: 21px;
-    height: 21px;
-    border: 1px solid #003087;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Marlett', 'Webdings', sans-serif;
-    border-radius: 3px;
-    position: relative;
-  }
-
-  .tb-btn-min { background: linear-gradient(to bottom, #e1e1e1, #b0b0b0); color: #000; }
-  .tb-btn-max { background: linear-gradient(to bottom, #e1e1e1, #b0b0b0); color: #000; }
-  .tb-btn-close {
-    background: linear-gradient(to bottom, #f07070, #c03030);
-    color: white;
-    font-weight: bold;
-  }
-
-  .window-content {
-    padding: 8px;
-  }
-
-  /* Main layout */
-  .page-wrap {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 8px;
-  }
-
-  /* Header logo area */
-  .logo-window .window-content {
-    background: #000;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .logo-text {
-    font-family: Impact, 'Arial Narrow', sans-serif;
-    font-size: 64px;
-    color: #FFD700;
-    text-shadow: 4px 4px 0 #FF0000, 8px 8px 0 #FF6600;
-    letter-spacing: -2px;
-    line-height: 1;
-    animation: logoFlash 1.5s infinite;
-  }
-
-  .logo-sub {
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 14px;
-    color: #00FF00;
-    margin-top: 8px;
-    animation: blink 0.8s step-end infinite;
-  }
-
-  .fire-row {
-    font-size: 28px;
-    line-height: 1;
-    animation: fireWave 0.5s ease-in-out infinite alternate;
-    display: block;
-    margin: 6px 0;
-    letter-spacing: 4px;
-  }
-
-  @keyframes logoFlash {
-    0%, 100% { color: #FFD700; text-shadow: 4px 4px 0 #FF0000, 8px 8px 0 #FF6600; }
-    33% { color: #FF4500; text-shadow: 4px 4px 0 #FFD700, 8px 8px 0 #FF0000; }
-    66% { color: #FF69B4; text-shadow: 4px 4px 0 #00FF00, 8px 8px 0 #FFD700; }
-  }
-
-  @keyframes fireWave {
-    from { transform: scaleX(1.05) skewX(-2deg); }
-    to { transform: scaleX(0.95) skewX(2deg); }
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-
-  @keyframes marqueeGlow {
-    0%, 100% { color: #FF0000; }
-    25% { color: #FFD700; }
-    50% { color: #00FF00; }
-    75% { color: #FF69B4; }
-  }
-
-  /* Marquee bar */
-  .marquee-bar {
-    background: #000080;
-    color: #FFD700;
-    padding: 6px 0;
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 14px;
-    font-weight: bold;
-    border-top: 2px solid #FFD700;
-    border-bottom: 2px solid #FFD700;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-inner {
-    display: inline-block;
-    animation: marquee 18s linear infinite;
-    animation: marqueeScroll 22s linear infinite;
-  }
-
-  @keyframes marqueeScroll {
-    from { transform: translateX(100vw); }
-    to { transform: translateX(-100%); }
-  }
-
-  .marquee-inner span {
-    animation: marqueeGlow 2s infinite;
-  }
-
-  /* Two-column layout */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 200px;
-    gap: 8px;
-    align-items: start;
-  }
-
-  /* Content sections */
-  .section-heading {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    background: linear-gradient(to right, #0A246A, #3A6EA5);
-    color: white;
-    padding: 3px 8px;
-    margin-bottom: 8px;
-  }
-
-  /* Cereal showcase */
-  .cereal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .cereal-card {
-    background: #fff;
-    border: 2px solid #999;
-    box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #555;
-    padding: 8px;
-    text-align: center;
-    font-size: 12px;
-  }
-
-  .cereal-emoji {
-    font-size: 48px;
-    display: block;
-    animation: bounce 1s ease-in-out infinite;
-    line-height: 1.2;
-  }
-
-  .cereal-card:nth-child(2) .cereal-emoji { animation-delay: 0.15s; }
-  .cereal-card:nth-child(3) .cereal-emoji { animation-delay: 0.3s; }
-  .cereal-card:nth-child(4) .cereal-emoji { animation-delay: 0.45s; }
-
-  .cereal-name {
-    font-family: Impact, sans-serif;
-    font-size: 15px;
-    color: #CC0000;
-    margin: 4px 0 2px;
-    display: block;
-  }
-
-  .cereal-rating {
-    color: #FFD700;
-    font-size: 16px;
-    text-shadow: 0 0 2px #FF8800;
-  }
-
-  .extreme-badge {
-    background: #FF0000;
-    color: #FFD700;
-    font-family: Impact, sans-serif;
-    font-size: 10px;
-    padding: 1px 4px;
-    border-radius: 2px;
-    display: inline-block;
-    margin-top: 2px;
-  }
-
-  /* Sidebar stuff */
-  .sidebar-widget .window-content {
-    background: #fff;
-    padding: 6px;
-    font-size: 11px;
-    text-align: center;
-  }
-
-  /* Visitor counter */
-  .counter-display {
-    font-family: 'Courier New', monospace;
-    font-size: 28px;
-    font-weight: bold;
-    background: #000;
-    color: #00FF00;
-    padding: 4px 10px;
-    letter-spacing: 4px;
-    border: 2px inset #666;
-    display: inline-block;
-    margin: 6px 0;
-    text-shadow: 0 0 8px #00FF00;
-  }
-
-  /* Under construction */
-  .construction {
-    font-size: 32px;
-    animation: spin 3s linear infinite;
-    display: inline-block;
-  }
-
-  /* Poll */
-  .poll-option {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 4px 0;
-    font-size: 12px;
-    cursor: pointer;
-  }
-
-  .poll-bar-wrap {
-    height: 12px;
-    background: #ddd;
-    border: 1px inset #999;
-    flex: 1;
-  }
-
-  .poll-bar {
-    height: 100%;
-    background: linear-gradient(to right, #0000FF, #00AAFF);
-  }
-
-  /* Buttons */
-  .xp-button {
-    background: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 50%, #cccccc 51%, #e8e8e8 100%);
-    border: 1px solid #888;
-    box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #555;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 12px;
-    padding: 3px 10px;
-    cursor: pointer;
-    color: #000;
-  }
-
-  .xp-button:active {
-    background: linear-gradient(to bottom, #ccc, #e0e0e0);
-    box-shadow: inset 1px 1px 0 #888;
-  }
-
-  /* Guestbook form */
-  .xp-input {
-    width: 100%;
-    border: 2px inset #888;
-    background: #fff;
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 12px;
-    padding: 2px 4px;
-    margin: 3px 0;
-  }
-
-  .guestbook-entry {
-    background: #FFFACD;
-    border: 1px solid #DDD;
-    border-left: 4px solid #FF6600;
-    padding: 6px 8px;
-    margin-bottom: 6px;
-    font-size: 12px;
-  }
-
-  .gb-name {
-    font-weight: bold;
-    color: #000080;
-    font-size: 13px;
-  }
-
-  .gb-date {
-    font-size: 10px;
-    color: #888;
-  }
-
-  /* Awards section */
-  .awards-row {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 8px;
-  }
-
-  .award-badge {
-    background: linear-gradient(135deg, #FFD700, #FF8800);
-    border: 2px solid #CC6600;
-    padding: 6px 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    width: 80px;
-    box-shadow: 2px 2px 0 #000;
-    font-family: Impact, sans-serif;
-    color: #000;
-    line-height: 1.2;
-  }
-
-  /* Footer */
-  .footer-bar {
-    background: #000080;
-    color: #fff;
-    text-align: center;
-    padding: 8px;
-    font-size: 11px;
-    font-family: 'Comic Sans MS', cursive;
-    margin-top: 8px;
-    border-top: 3px solid #FFD700;
-  }
-
-  .webring {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-    background: #000;
-    border: 1px solid #FFD700;
-    padding: 4px 8px;
-    font-size: 11px;
-    color: #FFD700;
-    margin: 4px;
-    text-decoration: none;
-  }
-
-  /* Status bar */
-  .status-bar {
-    background: #ECE9D8;
-    border-top: 1px solid #888;
-    display: flex;
-    gap: 2px;
-    padding: 2px 4px;
-    font-size: 11px;
-    font-family: 'Trebuchet MS', sans-serif;
-  }
-
-  .status-panel {
-    border: 1px inset #999;
-    padding: 1px 6px;
-    flex: 1;
-  }
-
-  .rainbow-text {
-    background: linear-gradient(to right, red, orange, yellow, green, blue, violet);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: bold;
-    font-size: 15px;
-  }
-
-  /* News ticker style */
-  .news-box {
-    background: #FFFFCC;
-    border: 2px solid #FF8800;
-    padding: 6px 8px;
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
-  .news-box ul {
-    padding-left: 14px;
-  }
-
-  .news-box li {
-    margin: 2px 0;
-  }
-
-  .new-badge {
-    background: #FF0000;
-    color: white;
-    font-size: 9px;
-    font-weight: bold;
-    padding: 0 3px;
-    animation: blink 1s step-end infinite;
-    vertical-align: middle;
-  }
-
-  .ie-notice {
-    font-size: 10px;
-    color: #555;
-    margin-top: 6px;
-    font-family: 'Trebuchet MS', sans-serif;
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="page-wrap">
 
-  <!-- LOGO WINDOW -->
+  <!-- LOGO -->
   <div class="window logo-window">
-    <div class="title-bar">
-      <span><span class="title-bar-icon">🥣</span> extreme_cereal.htm - Netscape Navigator 4.0</span>
-      <div class="title-bar-buttons">
-        <div class="tb-btn tb-btn-min">_</div>
-        <div class="tb-btn tb-btn-max">□</div>
-        <div class="tb-btn tb-btn-close">✕</div>
-      </div>
-    </div>
     <div class="window-content">
-      <span class="fire-row">🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥</span>
+      <div class="retro-sun">
+        <div class="sun-stripe" style="top:14px;"></div>
+        <div class="sun-stripe" style="top:22px;"></div>
+        <div class="sun-stripe" style="top:30px;"></div>
+        <div class="sun-stripe" style="top:37px;"></div>
+        <div class="sun-stripe" style="top:43px;"></div>
+      </div>
+      <span class="neon-row">⚡🥣⚡🥣⚡🥣⚡🥣⚡🥣⚡🥣⚡</span>
       <div class="logo-text">EXTREME<br>CEREAL</div>
       <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
-      <span class="fire-row">🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥</span>
+      <span class="neon-row">⚡🥣⚡🥣⚡🥣⚡🥣⚡🥣⚡🥣⚡</span>
     </div>
-    <div class="status-bar">
-      <div class="status-panel">Document: Done</div>
-      <div class="status-panel">🔒 extremecereal.com</div>
-      <div class="status-panel">IE 6.0 SP2</div>
-    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="index.html" class="active">🏠 HOME</a>
+    <a href="about.html">👥 ABOUT US</a>
+    <a href="reviews.html">📋 CEREAL REVIEWS</a>
   </div>
 
   <!-- MARQUEE -->
   <div class="marquee-bar">
     <div class="marquee-inner">
-      <span>🥣 WELCOME TO EXTREMECEREAL.COM :: THE MOST EXTREME CEREAL WEBSITE EVER CREATED BY HUMANS ON THE INTERNET 🥣 :: THIS SITE IS Y2K COMPLIANT ✅ :: BEST VIEWED IN INTERNET EXPLORER 6.0 AT 800x600 RESOLUTION :: 🔥 NEW: FROSTED FLAKES REVIEW IS UP!! 🔥 :: SIGN OUR GUESTBOOK!! :: WE ARE THE #1 CEREAL FANSITE ON GEOCITIES :: 🥣 CEREAL IS EXTREME :: 🥣</span>
+      <span>🥣 WELCOME TO EXTREMECEREAL.COM :: THE MOST EXTREME CEREAL WEBSITE EVER CREATED BY HUMANS ON THE INTERNET 🥣 :: ⚡ NEW: FROSTED FLAKES REVIEW IS UP!! ⚡ :: 🥣 CEREAL IS EXTREME :: 🥣</span>
     </div>
   </div>
 
-  <!-- NEWS BOX -->
+  <!-- NEWS -->
   <div class="window" style="margin-top:8px;">
-    <div class="title-bar">
-      <span>📰 Site News &amp; Updates</span>
-      <div class="title-bar-buttons">
-        <div class="tb-btn tb-btn-close">✕</div>
-      </div>
-    </div>
+    <div class="title-bar">📰 SITE NEWS &amp; UPDATES</div>
     <div class="window-content">
       <div class="news-box">
-        <strong>📢 LATEST UPDATES:</strong>
+        <strong style="color:#00ffff; text-shadow:0 0 6px #00ffff;">📢 LATEST UPDATES:</strong>
         <ul>
-          <li><span class="new-badge">NEW</span> Added our official EXTREME CEREAL Awards ceremony results (March 2005)</li>
-          <li><span class="new-badge">NEW</span> Cap'n Crunch full review - 9.7/10 would destroy the roof of my mouth again</li>
-          <li>Added new background (teal checkered, very cool)</li>
-          <li>Guestbook is back online!! sorry for the downtime my geocities ran out of space</li>
+          <li><span class="new-badge">NEW</span> Current Favorites section added — see what the crew is eating!!</li>
+          <li><span class="new-badge">NEW</span> Cap'n Crunch full review — 9.7/10 would destroy the roof of my mouth again</li>
+          <li><span class="new-badge">NEW</span> EXTREME SYNTHWAVE redesign is LIVE. very cool. very extreme.</li>
           <li>Updated hit counter (we are now over 00,042 visitors!!)</li>
-          <li>Added webring: CerealFans2005 - click to join!!</li>
         </ul>
-        <p class="ie-notice">⚠️ Best viewed in Internet Explorer 6.0 at 800×600 resolution. May not display correctly in Firefox or "Netscape." This site is not responsible for any cereal-related injuries.</p>
+        <p class="ie-notice">This site is not responsible for any cereal-related injuries.</p>
       </div>
     </div>
   </div>
 
   <!-- MAIN 2-COL -->
   <div class="two-col">
-
-    <!-- LEFT COLUMN -->
     <div>
 
-      <!-- CEREAL OF THE MONTH -->
-      <div class="window">
-        <div class="title-bar">
-          <span>🏆 CEREAL HALL OF EXTREME FAME</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-min">_</div>
-            <div class="tb-btn tb-btn-close">✕</div>
+      <!-- CURRENT FAVORITES -->
+      <div class="window" style="animation: neonPulse 3s infinite;">
+        <div class="title-bar">⚡ CURRENT FAVORITES — THE EXTREME CEREAL CREW ⚡</div>
+        <div class="window-content">
+          <div class="section-heading">★ WHAT THE CREW IS EATING RIGHT NOW ★</div>
+          <div class="crew-grid">
+
+            <div class="crew-card">
+              <span class="crew-name">ANGIE</span>
+              <span class="crew-cereal-emoji">🍀</span>
+              <span class="crew-cereal-name">Lucky Charms</span>
+              <div class="crew-rating">★★★★★</div>
+              <p class="crew-note">"The marshmallow ratio is perfect right now. I have investigated."</p>
+            </div>
+
+            <div class="crew-card">
+              <span class="crew-name">DANIELLE</span>
+              <span class="crew-cereal-emoji">🌊</span>
+              <span class="crew-cereal-name">Cap'n Crunch</span>
+              <div class="crew-rating">★★★★★</div>
+              <p class="crew-note">"Worth every roof-of-mouth injury. No regrets. Zero."</p>
+            </div>
+
+            <div class="crew-card">
+              <span class="crew-name">EMILY</span>
+              <span class="crew-cereal-emoji">🦜</span>
+              <span class="crew-cereal-name">Froot Loops</span>
+              <div class="crew-rating">★★★★☆</div>
+              <p class="crew-note">"They're all the same flavor but the colors make it taste different. Science."</p>
+            </div>
+
           </div>
         </div>
+      </div>
+
+      <!-- HALL OF FAME -->
+      <div class="window" style="margin-top:8px;">
+        <div class="title-bar">🏆 CEREAL HALL OF EXTREME FAME</div>
         <div class="window-content">
           <div class="section-heading">★ CEREALS RANKED BY EXTREMENESS ★</div>
           <div class="cereal-grid">
@@ -535,104 +108,57 @@
               <span class="cereal-name">Lucky Charms</span>
               <div class="cereal-rating">★★★★★</div>
               <div class="extreme-badge">EXTREME</div>
-              <p style="font-size:10px;margin-top:4px;">The marshmallows are NOT real. We investigated.</p>
+              <p style="font-size:10px;margin-top:6px;">The marshmallows are NOT real. We investigated.</p>
             </div>
             <div class="cereal-card">
               <span class="cereal-emoji">💛</span>
               <span class="cereal-name">Honey Smacks</span>
               <div class="cereal-rating">★★★★☆</div>
               <div class="extreme-badge">VERY EXTREME</div>
-              <p style="font-size:10px;margin-top:4px;">Frog mascot is suspicious. 10/10 taste.</p>
+              <p style="font-size:10px;margin-top:6px;">Frog mascot is suspicious. 10/10 taste.</p>
             </div>
             <div class="cereal-card">
               <span class="cereal-emoji">🌊</span>
               <span class="cereal-name">Cap'n Crunch</span>
               <div class="cereal-rating">★★★★★</div>
               <div class="extreme-badge">DANGEROUSLY EXTREME</div>
-              <p style="font-size:10px;margin-top:4px;">Destroys roof of mouth. WORTH IT.</p>
+              <p style="font-size:10px;margin-top:6px;">Destroys roof of mouth. WORTH IT.</p>
             </div>
             <div class="cereal-card">
               <span class="cereal-emoji">🍫</span>
               <span class="cereal-name">Cocoa Puffs</span>
               <div class="cereal-rating">★★★★★</div>
               <div class="extreme-badge">CUCKOO EXTREME</div>
-              <p style="font-size:10px;margin-top:4px;">I am literally cuckoo for them.</p>
+              <p style="font-size:10px;margin-top:6px;">I am literally cuckoo for them.</p>
             </div>
           </div>
-          <div style="text-align:center; margin-top:8px;">
-            <button class="xp-button">📋 View Full Rankings</button>
+          <div style="text-align:center; margin-top:12px;">
+            <button class="xp-button" onclick="window.location='reviews.html'">📋 VIEW ALL REVIEWS</button>
             &nbsp;
-            <button class="xp-button">📧 Submit Your Review</button>
+            <button class="xp-button">📧 SUBMIT YOUR REVIEW</button>
           </div>
         </div>
       </div>
 
-      <!-- GUESTBOOK -->
-      <div class="window" style="margin-top:8px;">
-        <div class="title-bar">
-          <span>📒 Guestbook (Sign it!!)</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-min">_</div>
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
-        <div class="window-content">
-          <div class="guestbook-entry">
-            <div class="gb-name">xXCerealKing2005Xx</div>
-            <div class="gb-date">03/14/2005 @ 11:42 PM</div>
-            <p>OMG THIS SITE IS SO COOL!!! Lucky Charms are the best cereal EVER. I eat them for breakfast AND dinner. Great site!!! 🥣🥣🥣</p>
-          </div>
-          <div class="guestbook-entry">
-            <div class="gb-name">frostedflakes_fan</div>
-            <div class="gb-date">03/11/2005 @ 6:17 PM</div>
-            <p>They're GRRRREAT!!! Tony the Tiger is my hero. Please add him to the hall of fame. Also cool background color.</p>
-          </div>
-          <div class="guestbook-entry">
-            <div class="gb-name">webmaster_derek_99</div>
-            <div class="gb-date">03/09/2005 @ 9:03 AM</div>
-            <p>Nice site. Added u to my links page. Can u add mine back? www.derekscoolpage.geocities.com. Also Froot Loops is better than Lucky Charms fight me</p>
-          </div>
-
-          <div class="section-heading" style="margin-top:8px;">✍️ Sign the Guestbook</div>
-          <input class="xp-input" placeholder="Your name (or cool username)" /><br>
-          <input class="xp-input" placeholder="Your website (optional, e.g. geocities.com/mysite)" /><br>
-          <textarea class="xp-input" rows="3" placeholder="Your message..."></textarea>
-          <div style="margin-top:4px;">
-            <button class="xp-button">✉️ Sign Guestbook!</button>
-          </div>
-        </div>
-      </div>
 
     </div>
 
-    <!-- RIGHT SIDEBAR -->
+    <!-- SIDEBAR -->
     <div>
 
-      <!-- VISITOR COUNTER -->
       <div class="window sidebar-widget">
-        <div class="title-bar">
-          <span>👥 Visitors</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
+        <div class="title-bar">👥 VISITORS</div>
         <div class="window-content">
           <p style="font-size:11px;">You are visitor #</p>
           <div class="counter-display" id="counter">000043</div>
-          <p style="font-size:10px;color:#666;">Since March 2005!!</p>
+          <p style="font-size:10px;color:#3d2266;">Since March 2005!!</p>
         </div>
       </div>
 
-      <!-- POLL -->
       <div class="window sidebar-widget" style="margin-top:8px;">
-        <div class="title-bar">
-          <span>📊 EXTREME Poll</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
+        <div class="title-bar">📊 EXTREME POLL</div>
         <div class="window-content">
-          <p style="font-weight:bold; font-size:12px; margin-bottom:6px;">Best Cereal Mascot?</p>
+          <p style="font-weight:bold; font-size:12px; margin-bottom:8px; color:#ff00cc; text-shadow:0 0 6px #ff00cc;">Best Cereal Mascot?</p>
           <div class="poll-option">
             <input type="radio" name="poll" id="p1"> <label for="p1" style="font-size:11px;">Tony Tiger</label>
             <div class="poll-bar-wrap"><div class="poll-bar" style="width:70%"></div></div>
@@ -648,59 +174,39 @@
             <div class="poll-bar-wrap"><div class="poll-bar" style="width:10%"></div></div>
             <span style="font-size:10px;">10%</span>
           </div>
-          <button class="xp-button" style="margin-top:6px; width:100%;">Vote!</button>
-          <p style="font-size:10px;color:#888;margin-top:4px;">312 votes total</p>
+          <button class="xp-button" style="margin-top:8px; width:100%;">VOTE!</button>
+          <p style="font-size:10px;color:#3d2266;margin-top:5px;">312 votes total</p>
         </div>
       </div>
 
-      <!-- UNDER CONSTRUCTION -->
       <div class="window sidebar-widget" style="margin-top:8px;">
-        <div class="title-bar">
-          <span>🚧 Coming Soon</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
+        <div class="title-bar">🚧 COMING SOON</div>
         <div class="window-content">
           <div class="construction">🚧</div>
-          <p style="font-size:11px; font-weight:bold; margin: 4px 0;">Under Construction!!</p>
-          <p style="font-size:10px;">- Cereal Box Gallery<br>- Milk Rankings<br>- EXTREME Forum<br>- Cereal Quiz<br>- My Xanga link</p>
+          <p style="font-size:11px; font-weight:bold; margin:6px 0; color:#ff00cc; text-shadow:0 0 6px #ff00cc;">Under Construction!!</p>
+          <p style="font-size:10px; color:#6644aa;">- Cereal Box Gallery<br>- Milk Rankings<br>- EXTREME Forum<br>- Cereal Quiz</p>
         </div>
       </div>
 
-      <!-- AWARDS -->
       <div class="window sidebar-widget" style="margin-top:8px;">
-        <div class="title-bar">
-          <span>🏅 Our Awards</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
+        <div class="title-bar">🏅 OUR AWARDS</div>
         <div class="window-content">
           <div class="awards-row">
             <div class="award-badge">COOL SITE OF THE DAY</div>
-            <div class="award-badge">5 STAR GEOCITIES SITE</div>
-            <div class="award-badge">BEST CEREAL SITE 2004</div>
+            <div class="award-badge">5 STAR CEREAL SITE</div>
+            <div class="award-badge">BEST CEREAL SITE 2024</div>
           </div>
-          <p style="font-size:10px;color:#666;">🏆 3 awards and counting!!</p>
+          <p style="font-size:10px;color:#3d2266;">🏆 3 awards and counting!!</p>
         </div>
       </div>
 
-      <!-- LINKS -->
       <div class="window sidebar-widget" style="margin-top:8px;">
-        <div class="title-bar">
-          <span>🔗 Cool Links</span>
-          <div class="title-bar-buttons">
-            <div class="tb-btn tb-btn-close">✕</div>
-          </div>
-        </div>
+        <div class="title-bar">🔗 COOL LINKS</div>
         <div class="window-content" style="text-align:left;">
-          <p style="font-size:11px;">
-            🥣 <a href="#" style="color:#0000EE;">CerealFanatics.net</a><br>
-            🌟 <a href="#" style="color:#0000EE;">MilkMasters.geocities</a><br>
-            🎮 <a href="#" style="color:#0000EE;">Newgrounds.com</a><br>
-            😎 <a href="#" style="color:#0000EE;">AwesomeButtons.biz</a><br>
-            💻 <a href="#" style="color:#0000EE;">My Xanga</a><br>
+          <p style="font-size:11px; line-height:2.4;">
+            🥣 <a href="#">CerealFanatics.net</a><br>
+            🌟 <a href="#">MilkMasters.com</a><br>
+            🎮 <a href="#">Newgrounds.com</a><br>
           </p>
         </div>
       </div>
@@ -708,37 +214,23 @@
     </div>
   </div>
 
-  <!-- RANDOM SECTION -->
+  <!-- RANDOM -->
   <div class="window" style="margin-top:8px;">
-    <div class="title-bar">
-      <span>🎲 RANDOM STUFF (this is the random stuff section)</span>
-      <div class="title-bar-buttons">
-        <div class="tb-btn tb-btn-min">_</div>
-        <div class="tb-btn tb-btn-close">✕</div>
-      </div>
-    </div>
-    <div class="window-content" style="text-align:center; padding:16px;">
+    <div class="title-bar">🎲 RANDOM STUFF</div>
+    <div class="window-content" style="text-align:center; padding:22px;">
       <p class="rainbow-text">THIS SECTION IS FOR RANDOM STUFF</p>
-      <p style="margin: 10px 0; font-size:13px;">🥣 Did you know: The average human will eat 49,395 bowls of cereal in their lifetime? WE CHECKED. (we did not check) 🥣</p>
-      <p style="font-size:12px; color:#CC0000; font-weight:bold; animation: blink 1s step-end infinite; display:inline-block;">⚠️ WARNING: This site may cause extreme cereal cravings ⚠️</p>
+      <p style="margin:14px 0; font-size:13px; color:#b09ccc;">🥣 Did you know: The average human will eat 49,395 bowls of cereal in their lifetime? WE CHECKED. (we did not check) 🥣</p>
+      <p style="font-size:12px; color:#ff0066; font-weight:bold; animation:blink 1s step-end infinite; display:inline-block; text-shadow:0 0 8px #ff0066;">⚠️ WARNING: This site may cause extreme cereal cravings ⚠️</p>
       <br><br>
-      <p style="font-size:11px; font-style:italic; color:#555;">"Cereal is not just breakfast. Cereal is a lifestyle." — the webmaster, 2005</p>
+      <p style="font-size:11px; font-style:italic; color:#4d2299;">"Cereal is not just breakfast. Cereal is a lifestyle." — the webmaster</p>
     </div>
   </div>
 
-  <!-- WEBRING / FOOTER -->
+  <!-- FOOTER -->
   <div class="footer-bar">
-    <p>★ EXTREME CEREAL WEBRING ★</p>
-    <div style="margin: 6px 0;">
-      <a class="webring" href="#">◄ PREV</a>
-      <a class="webring" href="#">🥣 CerealWebring 2005</a>
-      <a class="webring" href="#">NEXT ►</a>
-    </div>
-    <p style="margin-top:8px;">© 2005 EXTREMECEREAL.COM :: All Rights Reserved :: Made with ❤️ and Microsoft FrontPage 2003</p>
-    <p style="font-size:10px; margin-top:4px; color:#aac;">This site looks best in Internet Explorer 6 at 800×600 resolution. Netscape not supported. Firefox is for nerds.</p>
-    <div style="margin-top:8px; font-size:24px;">
-      🥣🔥🥣🔥🥣🔥🥣🔥🥣
-    </div>
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
   </div>
 
 </div>
@@ -751,9 +243,11 @@
   }, 8000);
 
   document.querySelectorAll('.xp-button').forEach(btn => {
-    btn.addEventListener('click', function() {
-      alert('🥣 EXTREME CEREAL SAYS: This feature is coming soon!! Check back later. Thank u for visiting!!');
-    });
+    if (!btn.hasAttribute('onclick')) {
+      btn.addEventListener('click', function() {
+        alert('🥣 EXTREME CEREAL SAYS: This feature is coming soon!! Check back later. Thank u for visiting!!');
+      });
+    }
   });
 </script>
 
