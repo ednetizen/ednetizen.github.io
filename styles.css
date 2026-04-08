@@ -4,11 +4,9 @@
 
 body {
   background-color: #06000f;
-  background-image:
-    linear-gradient(rgba(180, 0, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(180, 0, 255, 0.15) 1px, transparent 1px),
-    radial-gradient(ellipse at 50% 0%, rgba(100, 0, 200, 0.25) 0%, transparent 60%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-image: url('images/extreme-cereal-blue-nb.png');
+  background-repeat: repeat;
+  background-size: 150px auto;
   font-family: 'Comic Sans MS', 'Comic Sans', 'Fredoka One', sans-serif;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%A5%A3%3C/text%3E%3C/svg%3E"), auto;
   overflow-x: hidden;
