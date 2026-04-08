@@ -751,3 +751,72 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
 }
 
 .member-stat strong { color: #FFD700; text-shadow: 0 0 4px #FFD700; }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+  }
+
+  .nav-bar a {
+    padding: 8px 14px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+    border-right: none;
+    border-bottom: 1px solid #4400aa;
+  }
+
+  .nav-bar a:last-child { border-bottom: none; }
+
+  .crew-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cereal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ranking-row {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .rank-number {
+    font-size: 22px;
+    min-width: 34px;
+  }
+
+  .logo-window .window-content {
+    padding: 16px 10px;
+  }
+
+  .title-bar {
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+  }
+
+  .awards-row {
+    gap: 4px;
+  }
+
+  .award-badge {
+    width: 65px;
+    font-size: 8px;
+    padding: 4px 6px;
+  }
+}
