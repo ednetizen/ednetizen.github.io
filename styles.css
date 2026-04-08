@@ -633,6 +633,14 @@ a:hover { color: #ff00cc; text-shadow: 0 0 6px #ff00cc; }
 
 .review-cereal-emoji { font-size: 42px; display: block; line-height: 1.2; margin-bottom: 6px; }
 
+.review-cereal-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+}
+
 .review-title {
   font-family: Impact, sans-serif;
   font-size: 22px;
