@@ -169,25 +169,26 @@
 
       <div class="window sidebar-widget" style="margin-top:8px;">
         <div class="title-bar">📊 EXTREME POLL</div>
-        <div class="window-content">
+        <div class="window-content" id="poll-widget">
           <p style="font-weight:bold; font-size:12px; margin-bottom:8px; color:#ff00cc; text-shadow:0 0 6px #ff00cc;">Best Cereal Mascot?</p>
           <div class="poll-option">
-            <input type="radio" name="poll" id="p1"> <label for="p1" style="font-size:11px;">Tony Tiger</label>
-            <div class="poll-bar-wrap"><div class="poll-bar" style="width:70%"></div></div>
-            <span style="font-size:10px;">70%</span>
+            <input type="radio" name="poll" id="p1" value="Tony Tiger"> <label for="p1" style="font-size:11px;">Tony Tiger</label>
+            <div class="poll-bar-wrap"><div class="poll-bar" id="bar-p1" style="width:0%"></div></div>
+            <span class="poll-pct" id="pct-p1" style="font-size:10px;">0%</span>
           </div>
           <div class="poll-option">
-            <input type="radio" name="poll" id="p2"> <label for="p2" style="font-size:11px;">Toucan Sam</label>
-            <div class="poll-bar-wrap"><div class="poll-bar" style="width:20%"></div></div>
-            <span style="font-size:10px;">20%</span>
+            <input type="radio" name="poll" id="p2" value="Toucan Sam"> <label for="p2" style="font-size:11px;">Toucan Sam</label>
+            <div class="poll-bar-wrap"><div class="poll-bar" id="bar-p2" style="width:0%"></div></div>
+            <span class="poll-pct" id="pct-p2" style="font-size:10px;">0%</span>
           </div>
           <div class="poll-option">
-            <input type="radio" name="poll" id="p3"> <label for="p3" style="font-size:11px;">Cap'n Crunch</label>
-            <div class="poll-bar-wrap"><div class="poll-bar" style="width:10%"></div></div>
-            <span style="font-size:10px;">10%</span>
+            <input type="radio" name="poll" id="p3" value="Cap'n Crunch"> <label for="p3" style="font-size:11px;">Cap'n Crunch</label>
+            <div class="poll-bar-wrap"><div class="poll-bar" id="bar-p3" style="width:0%"></div></div>
+            <span class="poll-pct" id="pct-p3" style="font-size:10px;">0%</span>
           </div>
-          <button class="xp-button" style="margin-top:8px; width:100%;">VOTE!</button>
-          <p style="font-size:10px;color:#3d2266;margin-top:5px;">312 votes total</p>
+          <button class="xp-button" id="poll-btn" style="margin-top:8px; width:100%;">VOTE!</button>
+          <p id="poll-total" style="font-size:10px;color:#3d2266;margin-top:5px;"></p>
+          <p id="poll-voted-msg" style="font-size:10px;color:#ff00cc;margin-top:4px;display:none;">✅ Vote recorded!</p>
         </div>
       </div>
 
@@ -254,8 +255,56 @@
     document.getElementById('counter').textContent = String(count).padStart(6, '0');
   }, 8000);
 
+  // POLL
+  const POLL_IDS = ['p1', 'p2', 'p3'];
+
+  function getPollData() {
+    return JSON.parse(localStorage.getItem('extremecerealpoll') || '{"p1":0,"p2":0,"p3":0}');
+  }
+
+  function savePollData(data) {
+    localStorage.setItem('extremecerealpoll', JSON.stringify(data));
+  }
+
+  function renderPoll() {
+    const data = getPollData();
+    const total = POLL_IDS.reduce((s, id) => s + data[id], 0);
+    POLL_IDS.forEach(id => {
+      const pct = total === 0 ? 0 : Math.round((data[id] / total) * 100);
+      document.getElementById('bar-' + id).style.width = pct + '%';
+      document.getElementById('pct-' + id).textContent = pct + '%';
+    });
+    document.getElementById('poll-total').textContent = total + ' vote' + (total !== 1 ? 's' : '') + ' total';
+  }
+
+  function hasVoted() {
+    return !!localStorage.getItem('extremecerealpoll_voted');
+  }
+
+  function lockPoll() {
+    POLL_IDS.forEach(id => document.getElementById(id).disabled = true);
+    document.getElementById('poll-btn').disabled = true;
+    document.getElementById('poll-btn').style.opacity = '0.4';
+    document.getElementById('poll-voted-msg').style.display = 'block';
+  }
+
+  renderPoll();
+  if (hasVoted()) lockPoll();
+
+  document.getElementById('poll-btn').addEventListener('click', function() {
+    if (hasVoted()) return;
+    const selected = document.querySelector('input[name="poll"]:checked');
+    if (!selected) { alert('🥣 Pick a mascot first!!'); return; }
+    const data = getPollData();
+    data[selected.id]++;
+    savePollData(data);
+    localStorage.setItem('extremecerealpoll_voted', '1');
+    renderPoll();
+    lockPoll();
+  });
+
   document.querySelectorAll('.xp-button').forEach(btn => {
-    if (!btn.hasAttribute('onclick')) {
+    if (!btn.hasAttribute('onclick') && btn.id !== 'poll-btn') {
       btn.addEventListener('click', function() {
         alert('🥣 EXTREME CEREAL SAYS: This feature is coming soon!! Check back later. Thank u for visiting!!');
       });
