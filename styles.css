@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -7,7 +9,7 @@ body {
     linear-gradient(90deg, rgba(180, 0, 255, 0.15) 1px, transparent 1px),
     radial-gradient(ellipse at 50% 0%, rgba(100, 0, 200, 0.25) 0%, transparent 60%);
   background-size: 40px 40px, 40px 40px, 100% 100%;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Fredoka One', sans-serif;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%A5%A3%3C/text%3E%3C/svg%3E"), auto;
   overflow-x: hidden;
   color: #e0d0ff;
@@ -446,7 +448,7 @@ body {
   width: 100%;
   border: 1px solid #4400aa;
   background: rgba(5, 0, 15, 0.8);
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Comic Sans MS', 'Fredoka One', sans-serif;
   font-size: 12px;
   padding: 4px 8px;
   margin: 3px 0;
@@ -509,7 +511,7 @@ body {
   text-align: center;
   padding: 16px;
   font-size: 11px;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Comic Sans MS', 'Fredoka One', sans-serif;
   margin-top: 8px;
   border-top: 2px solid #ff00cc;
   box-shadow: 0 -4px 30px rgba(255, 0, 204, 0.25);
