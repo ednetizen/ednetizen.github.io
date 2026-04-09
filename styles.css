@@ -4,7 +4,7 @@
 
 body {
   background-color: #06000f;
-  background-image: url('images/extreme-cereal-blue-nb.png');
+  background-image: url('./images/extreme-cereal-blue-nb.png');
   background-repeat: repeat;
   background-size: 150px auto;
   font-family: 'Comic Sans MS', 'Comic Sans', 'Fredoka One', sans-serif;
