@@ -5,6 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — EXTREME CEREAL</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  .post-card {
+    background: rgba(15, 0, 40, 0.85);
+    border: 1px solid #8b00ff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+
+  .post-card:hover {
+    border-color: #ff00cc;
+    box-shadow: 0 0 24px rgba(255, 0, 204, 0.35);
+  }
+
+  .post-card-img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .post-card-body {
+    padding: 18px 20px;
+  }
+
+  .post-card-meta {
+    font-family: Impact, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 8px;
+  }
+
+  .post-card-title {
+    font-family: Impact, sans-serif;
+    font-size: 26px;
+    color: #ff00cc;
+    text-shadow: 0 0 10px #ff00cc;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+  }
+
+  .post-card-title:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+  }
+
+  .post-card-excerpt {
+    font-size: 13px;
+    color: #9878bb;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .read-more {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    border: 1px solid #00ffff;
+    padding: 4px 14px;
+    display: inline-block;
+    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+  }
+
+  .read-more:hover {
+    color: #ff00cc;
+    border-color: #ff00cc;
+    text-shadow: 0 0 8px #ff00cc;
+  }
+
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+</style>
 </head>
 <body>
 
@@ -28,8 +109,21 @@
 
   <div class="window" style="margin-top:8px;">
     <div class="title-bar">📝 THE EXTREME CEREAL BLOG</div>
-    <div class="window-content" style="text-align:center; padding:60px 20px;">
-      <p style="font-family:Impact,sans-serif; font-size:28px; color:#ff00cc; text-shadow:0 0 16px #ff00cc; letter-spacing:3px;">Coming Soon.</p>
+    <div class="window-content">
+      <div class="section-heading">★ LATEST POSTS ★</div>
+      <div class="blog-list">
+
+        <div class="post-card">
+          <img class="post-card-img" src="images/ang_danielle_1.png" alt="Serving Size post">
+          <div class="post-card-body">
+            <div class="post-card-meta">APRIL 10, 2026 &nbsp;·&nbsp; BY THE CREW</div>
+            <a class="post-card-title" href="blog/serving-size.html">Serving Size Is a Suggestion, Not a Lifestyle.</a>
+            <p class="post-card-excerpt">Let's address the lie we have all agreed to tolerate: the cereal serving size. According to the box, one serving of cereal is about one cup. One cup. A quantity so small it feels like it was designed for a doll with excellent cholesterol.</p>
+            <a class="read-more" href="blog/serving-size.html">READ MORE →</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
