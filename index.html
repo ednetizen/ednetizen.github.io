@@ -101,6 +101,9 @@
 
     </div>
 
+    <!-- COMING SOON MSG -->
+    <p id="coming-soon-msg" style="display:none; font-size:12px; color:#ff00cc; text-align:center; margin: 4px 0; text-shadow:0 0 6px #ff00cc; font-family:Impact,sans-serif; letter-spacing:1px;">🥣 COMING SOON — CHECK BACK LATER!</p>
+
     <!-- SIDEBAR -->
     <div>
 
@@ -240,19 +243,26 @@
   document.getElementById('poll-btn').addEventListener('click', function() {
     if (hasVoted()) return;
     const selected = document.querySelector('input[name="poll"]:checked');
-    if (!selected) { alert('🥣 Pick a mascot first!!'); return; }
+    if (!selected) {
+      document.getElementById('poll-voted-msg').textContent = '🥣 Pick a mascot first!!';
+      document.getElementById('poll-voted-msg').style.display = 'block';
+      return;
+    }
     const data = getPollData();
     data[selected.id]++;
     savePollData(data);
     localStorage.setItem('extremecerealpoll_voted', '1');
     renderPoll();
+    document.getElementById('poll-voted-msg').textContent = '✅ Vote recorded!';
     lockPoll();
   });
 
   document.querySelectorAll('.xp-button').forEach(btn => {
     if (!btn.hasAttribute('onclick') && btn.id !== 'poll-btn') {
       btn.addEventListener('click', function() {
-        alert('🥣 EXTREME CEREAL SAYS: This feature is coming soon!! Check back later. Thank u for visiting!!');
+        const msg = document.getElementById('coming-soon-msg');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
       });
     }
   });
