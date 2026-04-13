@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Charms Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #1</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/lucky-charms.png" alt="Lucky Charms" width="120" height="120">
+        <div>
+          <div class="post-meta">APRIL 13, 2026 &nbsp;·&nbsp; WEEKLY DROP #1</div>
+          <div class="post-title">Lucky Charms Is Not a Cereal.<br>It's a Psychological Event.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">12/6 <span>rating</span></div>
+          <p class="score-note">"Not enough marshmallows." Not a suggestion. A demand for reform.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">8 <span>/ 10</span></div>
+          <p class="score-note">"Just the right amount of too little and too many." Advanced cereal analysis.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">3 <span>/ 10</span></div>
+          <p class="score-note">"Disgusting level of marshmallows." Where others see magic, she sees a crime scene.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Lucky Charms is less of a cereal and more of a psychological event. You do not eat it, you experience it. One second you are a functioning adult, the next you are hunched over a bowl at 9pm digging for marshmallows like you are panning for gold in 1849. There is no dignity here. There is only the hunt.</p>
+
+        <div class="post-highlight">The oats are what happens when the cereal company says "we legally cannot just sell a box of marshmallows."</div>
+
+        <p>The oats? Let us be honest. The oats are filler. They are the coworker you tolerate because they are technically part of the team. No one is here for them. No one has ever poured a bowl of Lucky Charms and thought, wow I hope I get mostly oats today. That person does not exist.</p>
+
+        <p>Danielle absolutely refuses to participate in the illusion, dropping a 12/6 rating because there are not enough marshmallows. Not "could use more," not "slightly imbalanced," no. Not enough. This is a protest. This is a demand for reform. Danielle is essentially saying until this cereal becomes 95 percent marshmallow, it is unfinished business. Respect.</p>
+
+        <p>Ang somehow manages to perfectly describe the emotional rollercoaster with an 8/10, calling it "just the right amount of too little and too many." This is advanced cereal analysis. This is someone who has been through it. Every bowl starts with optimism, peaks with marshmallow overload, and ends with a depressing pile of soggy oats that feel like consequences. It is a full narrative arc.</p>
+
+        <p>Emily, however, is calling the police. A 3/10 and a full rejection of the marshmallow situation. "Disgusting level of marshmallows" is not a critique, it is a warning. Emily is looking at the same bowl and seeing a crime scene. Where others see magic, she sees chaos, sugar, and poor decision making.</p>
+
+        <div class="post-highlight">Lucky Charms will give you five marshmallows in a row and then punish you with a dry oat desert. It is the most emotionally manipulative cereal on the market.</div>
+
+        <p>And that is the beauty of Lucky Charms. It is not consistent. It is not balanced. It does not care about your preferences. It will spike your happiness and then immediately humble you.</p>
+
+        <p>Final verdict: Lucky Charms is unhinged, unpredictable, and somehow still iconic. You will complain about it the entire time you are eating it and then buy another box anyway like nothing happened.</p>
+
+        <p>Except for Emily. She won't be buying any anytime soon.</p>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
