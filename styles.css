@@ -13,6 +13,38 @@ body {
   color: #e0d0ff;
 }
 
+body.review-page {
+  background-color: #00070f;
+}
+
+body.review-page .window {
+  background: rgba(0, 22, 28, 0.95);
+  border-color: #00cccc;
+  box-shadow: 0 0 16px rgba(0, 204, 204, 0.25), inset 0 0 30px rgba(0, 204, 204, 0.03);
+}
+
+body.review-page .title-bar {
+  background: linear-gradient(90deg, #001a1a 0%, #003d3d 50%, #001a1a 100%);
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+body.blog-page {
+  background-color: #08000f;
+}
+
+body.blog-page .window {
+  background: rgba(22, 0, 40, 0.95);
+  border-color: #aa00ff;
+  box-shadow: 0 0 16px rgba(170, 0, 255, 0.3), inset 0 0 30px rgba(170, 0, 255, 0.04);
+}
+
+body.blog-page .title-bar {
+  background: linear-gradient(90deg, #0d0020 0%, #3a0060 50%, #0d0020 100%);
+  color: #cc66ff;
+  text-shadow: 0 0 10px #cc66ff;
+}
+
 .page-wrap {
   max-width: 820px;
   margin: 0 auto;
