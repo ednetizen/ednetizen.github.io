@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cap'n Crunch Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #5</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/capn-crunch-review.png" alt="Cap'n Crunch" width="240" height="240">
+        <div>
+          <div class="post-meta">MAY 14, 2026 &nbsp;·&nbsp; WEEKLY DROP #5</div>
+          <div class="post-title">Cap'n Crunch: The Mouth Injury<br>We Keep Coming Back To.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">3 <span>/ 68</span></div>
+          <p class="score-note">"I believe in honesty and also consequences." The scale is correct. The cereal is not.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">6 <span>/ 10</span></div>
+          <p class="score-note">"Okay so it's actually a lot better than I remember. Idk if I imagined the film worse in my head, but it was actually delicious." Shocking. Compelling. Forgiven.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">1 <span>/ 10</span></div>
+          <p class="score-note">"Unnatural. What is it supposed to taste like? Gives Butterfinger vibes. There's similarity there." She is right.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>There are some cereals that comfort you. Some cereals nourish you. Some cereals gently carry you into your day like a warm supportive aunt. Cap'n Crunch is not one of those cereals.</p>
+
+        <p>Cap'n Crunch feels like getting jumped by breakfast.</p>
+
+        <div class="post-highlight">Going into this review, there was a genuine expectation of destruction. In memory, Cap'n Crunch was basically edible fiberglass — every bowl ending with the roof of your mouth looking like it lost a bar fight. That part still stands. It cuts your mouth and leaves a weird film in it that feels medically unnecessary.</div>
+
+        <p>And yet somehow, SOMEHOW, this cereal created civil war-level disagreement within the Extreme Cereal team.</p>
+
+        <p>Ang came in with what can only be described as a shocking amount of forgiveness: "Okay so it's actually a lot better than I remember. Idk if I imagined the film worse in my head, but it was actually delicious." A 6 out of 10. Betrayal. Growth. Both things at once.</p>
+
+        <p>Meanwhile Emily took the scientific route: "1 out of 10 — unnatural. What is it supposed to taste like? Gives Butterfinger vibes. There's similarity there." And she is right. There IS something vaguely Butterfinger-adjacent happening. Like peanut butter's distant chemically engineered cousin. If someone said Cap'n Crunch was invented accidentally in a lab while trying to create insulation foam for boats, that would be immediately believable.</p>
+
+        <div class="post-highlight">Also why does this cereal taste simultaneously sweet AND sharp? How is that possible? Why does it stab emotionally and physically?</div>
+
+        <p>And yet people LOVE it. This cereal has survived generations purely through chaos, branding, and the fact that children apparently enjoy danger. The Cap'n himself? Suspicious. Why is he smiling while mouths are being shredded? Why are we trusting a man named "Cap'n" who refuses to finish the word captain? What happened to the missing letters? What else is he hiding?</p>
+
+        <p>Also worth noting: dry Cap'n Crunch is honestly kind of addictive. Milk Cap'n Crunch turns into sweet drywall fragments after exactly four minutes. The roof of your mouth afterward is legally a workplace injury.</p>
+
+        <p>The more you think about it, the more Cap'n Crunch feels less like a cereal and more like an experience. A rite of passage. Everyone has to eat it at least once just to understand suffering and resilience.</p>
+
+        <div class="post-highlight">Would we buy it again? No. Would we eat a handful if it was sitting in someone else's kitchen at 11:47 PM? Absolutely. That's the power of the Cap'n.</div>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>dangerous</li>
+            <li>confusing</li>
+            <li>weirdly compelling</li>
+            <li>potentially derived from construction materials</li>
+            <li>iconic unfortunately</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
