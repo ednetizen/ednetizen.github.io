@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcade — EXTREME CEREAL</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .game-card {
+    background: rgba(15, 0, 40, 0.85);
+    border: 1px solid #8b00ff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+
+  .game-card:hover {
+    border-color: #ff00cc;
+    box-shadow: 0 0 24px rgba(255, 0, 204, 0.35);
+  }
+
+  .game-preview {
+    background: #050010;
+    border-bottom: 1px solid #2d0060;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+  }
+
+  .game-card-body {
+    padding: 18px 20px;
+  }
+
+  .game-card-meta {
+    font-family: Impact, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 8px;
+  }
+
+  .game-card-title {
+    font-family: Impact, sans-serif;
+    font-size: 26px;
+    color: #ff00cc;
+    text-shadow: 0 0 10px #ff00cc;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+  }
+
+  .game-card-title:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+  }
+
+  .game-card-desc {
+    font-size: 13px;
+    color: #9878bb;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .play-btn {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    border: 1px solid #00ffff;
+    padding: 4px 14px;
+    display: inline-block;
+    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+  }
+
+  .play-btn:hover {
+    color: #ff00cc;
+    border-color: #ff00cc;
+    text-shadow: 0 0 8px #ff00cc;
+  }
+
+  .game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="index.html">🏠 HOME</a>
+    <a href="about.html">👥 ABOUT US</a>
+    <a href="reviews.html">📋 CEREAL REVIEWS</a>
+    <a href="blog.html">📝 BLOG</a>
+    <a href="arcade.html" class="active">🕹️ ARCADE</a>
+  </div>
+
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">🕹️ EXTREME ARCADE</div>
+    <div class="window-content">
+      <div class="section-heading">★ GAMES ★</div>
+      <div class="game-list">
+
+        <div class="game-card">
+          <div class="game-preview">🐍</div>
+          <div class="game-card-body">
+            <div class="game-card-meta">CLASSIC SURVIVAL</div>
+            <a class="game-card-title" href="game.html">Cereal Snake</a>
+            <p class="game-card-desc">Classic serpentine survival. Eat cereal pieces, grow longer, and don't hit the walls or yourself. The spoon knows no mercy.</p>
+            <a class="play-btn" href="game.html">PLAY →</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-preview">🧱</div>
+          <div class="game-card-body">
+            <div class="game-card-meta">BRICK BREAKER</div>
+            <a class="game-card-title" href="breakout.html">Cereal Breaker</a>
+            <p class="game-card-desc">Destroy rows of cereal bricks with a bouncing ball and a trusty spoon paddle. Six cereals. Three lives. Clear the board.</p>
+            <a class="play-btn" href="breakout.html">PLAY →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>

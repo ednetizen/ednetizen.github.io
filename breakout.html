@@ -111,7 +111,7 @@
     <a href="about.html">👥 ABOUT US</a>
     <a href="reviews.html">📋 CEREAL REVIEWS</a>
     <a href="blog.html">📝 BLOG</a>
-    <a href="game.html" class="active">🕹️ ARCADE</a>
+    <a href="arcade.html" class="active">🕹️ ARCADE</a>
   </div>
 
   <!-- GAME -->
@@ -131,7 +131,7 @@
         <div class="game-hint">
           MOUSE OR ARROW KEYS TO MOVE &nbsp;·&nbsp; CLICK OR SPACE TO LAUNCH
         </div>
-        <div class="arcade-link">ALSO PLAY: <a href="game.html">🐍 CEREAL SNAKE</a></div>
+        <div class="arcade-link"><a href="arcade.html">← BACK TO ARCADE</a></div>
 
       </div>
     </div>
@@ -428,34 +428,41 @@ function drawBricks() {
 }
 
 function drawPaddle() {
+  // Subtle glow bar so the hitbox is visible
   const px = paddleX - PW / 2;
-  const grad = ctx.createLinearGradient(px, PY, px, PY + PH);
-  grad.addColorStop(0, '#aaffff');
-  grad.addColorStop(1, '#009999');
-  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 20;
-  ctx.fillStyle = grad;
+  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 10;
+  ctx.fillStyle = 'rgba(0, 200, 200, 0.12)';
   ctx.beginPath();
   ctx.roundRect(px, PY, PW, PH, 5);
   ctx.fill();
   ctx.shadowBlur = 0;
+
+  // Four spoon emojis forming the paddle
+  ctx.font = '20px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 8;
+  ctx.fillText('🥄🥄🥄🥄', paddleX, PY + PH / 2);
+  ctx.shadowBlur = 0;
 }
 
 function drawBall() {
-  // Glow halo
+  // Soft glow halo
   const grad = ctx.createRadialGradient(ballX, ballY, 0, ballX, ballY, BR * 3);
-  grad.addColorStop(0,    'rgba(255,255,255,0.9)');
-  grad.addColorStop(0.35, 'rgba(200,170,255,0.5)');
+  grad.addColorStop(0,    'rgba(255,255,255,0.5)');
+  grad.addColorStop(0.4,  'rgba(200,170,255,0.3)');
   grad.addColorStop(1,    'rgba(100,50,200,0)');
   ctx.fillStyle = grad;
   ctx.beginPath();
   ctx.arc(ballX, ballY, BR * 3, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 12;
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(ballX, ballY, BR, 0, Math.PI * 2);
-  ctx.fill();
+  // 🥣 cereal bowl emoji as the ball
+  ctx.font = '18px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 10;
+  ctx.fillText('🥣', ballX, ballY);
   ctx.shadowBlur = 0;
 }
 
