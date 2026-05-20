@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cereal Breaker — Extreme Cereal</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .game-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 10px;
+  }
+
+  #breakout-canvas {
+    display: block;
+    background: #050010;
+    border: 2px solid #8b00ff;
+    box-shadow: 0 0 24px rgba(139, 0, 255, 0.45);
+    max-width: 100%;
+    touch-action: none;
+  }
+
+  .ctrl-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+  }
+
+  .ctrl-btn {
+    font-family: Impact, sans-serif;
+    font-size: 20px;
+    color: #00ffff;
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    width: 64px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s, border-color 0.1s, box-shadow 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .ctrl-btn:active,
+  .ctrl-btn.pressed {
+    background: rgba(139, 0, 255, 0.3);
+    border-color: #ff00cc;
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.4);
+  }
+
+  .launch-btn {
+    color: #ff00cc;
+    font-size: 13px;
+    letter-spacing: 2px;
+    width: auto;
+    padding: 0 18px;
+  }
+
+  .game-hint {
+    margin-top: 12px;
+    font-family: Impact, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #4d2299;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .arcade-link {
+    margin-top: 6px;
+    font-family: Impact, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #4d2299;
+    text-align: center;
+  }
+
+  .arcade-link a {
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
+  }
+
+  .arcade-link a:hover {
+    color: #ff00cc;
+    text-shadow: 0 0 6px rgba(255, 0, 204, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="index.html">🏠 HOME</a>
+    <a href="about.html">👥 ABOUT US</a>
+    <a href="reviews.html">📋 CEREAL REVIEWS</a>
+    <a href="blog.html">📝 BLOG</a>
+    <a href="game.html" class="active">🕹️ ARCADE</a>
+  </div>
+
+  <!-- GAME -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">🕹️ CEREAL BREAKER — EXTREME ARCADE</div>
+    <div class="window-content">
+      <div class="game-wrap">
+
+        <canvas id="breakout-canvas" width="400" height="520"></canvas>
+
+        <div class="ctrl-row">
+          <button class="ctrl-btn" id="btn-left" aria-label="Move left">◀</button>
+          <button class="ctrl-btn launch-btn" id="btn-launch">LAUNCH</button>
+          <button class="ctrl-btn" id="btn-right" aria-label="Move right">▶</button>
+        </div>
+
+        <div class="game-hint">
+          MOUSE OR ARROW KEYS TO MOVE &nbsp;·&nbsp; CLICK OR SPACE TO LAUNCH
+        </div>
+        <div class="arcade-link">ALSO PLAY: <a href="game.html">🐍 CEREAL SNAKE</a></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+'use strict';
+
+const canvas = document.getElementById('breakout-canvas');
+const ctx = canvas.getContext('2d');
+const W = 400, H = 520;
+
+// ── Grid ────────────────────────────────────────────────────
+const COLS = 8, ROWS = 6;
+const BW = 44, BH = 18, BGX = 4, BGY = 5;
+const BLEFT = 10, BTOP = 48;
+
+// ── Paddle ──────────────────────────────────────────────────
+const PW = 80, PH = 12, PY = H - 50;
+const PSPEED = 7;
+
+// ── Ball ────────────────────────────────────────────────────
+const BR = 7;
+
+// ── Cereal rows (top = hardest to reach = most points) ──────
+const CEREAL_ROWS = [
+  { color: '#ff00cc', pts: 5 },  // Cap'n Crunch
+  { color: '#ff5500', pts: 4 },  // Froot Loops
+  { color: '#ffcc00', pts: 3 },  // Honey Bunches
+  { color: '#00ff88', pts: 3 },  // Lucky Charms
+  { color: '#00bbff', pts: 2 },  // Frosted Flakes
+  { color: '#bb44ff', pts: 1 },  // Cocoa Puffs
+];
+
+// ── State ────────────────────────────────────────────────────
+let state = 'intro';
+let score = 0;
+let hiScore = parseInt(localStorage.getItem('xc_breakout_hs') || '0');
+let lives = 3;
+let paddleX = W / 2;
+let ballX = W / 2, ballY = PY - BR;
+let ballVX = 0, ballVY = 0;
+let ballOnPaddle = true;
+let bricks = [];
+let keysDown = {};
+let mouseX = W / 2;
+let btnLeftDown = false, btnRightDown = false;
+
+// ── Setup ────────────────────────────────────────────────────
+function initGame() {
+  score = 0;
+  lives = 3;
+  paddleX = W / 2;
+  mouseX = W / 2;
+  resetBall();
+  initBricks();
+}
+
+function initBricks() {
+  bricks = [];
+  for (let r = 0; r < ROWS; r++) {
+    bricks[r] = [];
+    for (let c = 0; c < COLS; c++) {
+      bricks[r][c] = { alive: true, pts: CEREAL_ROWS[r].pts, color: CEREAL_ROWS[r].color };
+    }
+  }
+}
+
+function resetBall() {
+  ballOnPaddle = true;
+  ballX = paddleX;
+  ballY = PY - BR;
+  ballVX = 0;
+  ballVY = 0;
+}
+
+function launchBall() {
+  if (!ballOnPaddle) return;
+  const sign = Math.random() < 0.5 ? 1 : -1;
+  const angle = sign * (Math.PI / 12 + Math.random() * Math.PI / 12); // ±15°–30°
+  ballVX = 5 * Math.sin(angle);
+  ballVY = -5 * Math.cos(angle);
+  ballOnPaddle = false;
+}
+
+// ── Brick helpers ────────────────────────────────────────────
+function bx(c) { return BLEFT + c * (BW + BGX); }
+function by(r) { return BTOP  + r * (BH + BGY); }
+
+function aliveBrickCount() {
+  let n = 0;
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c < COLS; c++)
+      if (bricks[r][c].alive) n++;
+  return n;
+}
+
+// ── Update ────────────────────────────────────────────────────
+function update() {
+  if (state !== 'playing') return;
+
+  // Paddle movement — keys/buttons take priority over mouse
+  if (btnLeftDown || keysDown['ArrowLeft'] || keysDown['a'] || keysDown['A']) {
+    paddleX = Math.max(PW / 2, paddleX - PSPEED);
+  } else if (btnRightDown || keysDown['ArrowRight'] || keysDown['d'] || keysDown['D']) {
+    paddleX = Math.min(W - PW / 2, paddleX + PSPEED);
+  } else {
+    paddleX = Math.max(PW / 2, Math.min(W - PW / 2, mouseX));
+  }
+
+  if (ballOnPaddle) {
+    ballX = paddleX;
+    return;
+  }
+
+  ballX += ballVX;
+  ballY += ballVY;
+
+  // Wall bounces
+  if (ballX - BR < 0)  { ballX = BR;     ballVX =  Math.abs(ballVX); }
+  if (ballX + BR > W)  { ballX = W - BR; ballVX = -Math.abs(ballVX); }
+  if (ballY - BR < 0)  { ballY = BR;     ballVY =  Math.abs(ballVY); }
+
+  // Paddle bounce
+  if (ballVY > 0
+      && ballY + BR >= PY
+      && ballY + BR <= PY + PH + 4
+      && ballX >= paddleX - PW / 2 - 2
+      && ballX <= paddleX + PW / 2 + 2) {
+    ballY = PY - BR;
+    const hit = (ballX - paddleX) / (PW / 2);       // −1..1
+    const ang = hit * (Math.PI / 3);                 // ±60°
+    const spd = Math.sqrt(ballVX * ballVX + ballVY * ballVY);
+    ballVX = spd * Math.sin(ang);
+    ballVY = -Math.max(Math.abs(spd * Math.cos(ang)), 2.5);
+  }
+
+  // Brick collisions — stop after first hit per frame
+  outerLoop:
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      if (!bricks[r][c].alive) continue;
+      const x0 = bx(c), y0 = by(r);
+      const ol = (ballX + BR) - x0;
+      const or_ = (x0 + BW) - (ballX - BR);
+      const ot = (ballY + BR) - y0;
+      const ob = (y0 + BH)  - (ballY - BR);
+
+      if (ol > 0 && or_ > 0 && ot > 0 && ob > 0) {
+        if (Math.min(ol, or_) < Math.min(ot, ob)) {
+          ballVX = -ballVX;
+          ballX  = ol < or_ ? x0 - BR : x0 + BW + BR;
+        } else {
+          ballVY = -ballVY;
+          ballY  = ot < ob ? y0 - BR : y0 + BH + BR;
+        }
+        bricks[r][c].alive = false;
+        score += bricks[r][c].pts;
+        if (score > hiScore) {
+          hiScore = score;
+          localStorage.setItem('xc_breakout_hs', hiScore);
+        }
+        // Gentle speed-up
+        const spd = Math.sqrt(ballVX * ballVX + ballVY * ballVY);
+        const target = 5 + Math.floor(score / 15) * 0.5;
+        if (spd < target) { const f = target / spd; ballVX *= f; ballVY *= f; }
+        break outerLoop;
+      }
+    }
+  }
+
+  // Ball lost
+  if (ballY - BR > H) {
+    if (--lives <= 0) {
+      state = 'gameover';
+    } else {
+      resetBall();
+    }
+  }
+
+  // Win
+  if (aliveBrickCount() === 0) state = 'win';
+}
+
+// ── Draw ──────────────────────────────────────────────────────
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#050010';
+  ctx.fillRect(0, 0, W, H);
+
+  if (state === 'intro') { drawIntro(); return; }
+
+  drawHUD();
+  drawBricks();
+  drawPaddle();
+  drawBall();
+
+  if (ballOnPaddle && state === 'playing') drawLaunchPrompt();
+  if (state === 'gameover') drawOverlay('GAME OVER', 'SCORE: ' + score, 'SPACE / CLICK TO RETRY');
+  if (state === 'win')      drawOverlay('YOU WIN!!', 'FINAL SCORE: ' + score, 'SPACE / CLICK TO PLAY AGAIN');
+}
+
+function drawIntro() {
+  // Ghost brick grid in background
+  ctx.globalAlpha = 0.12;
+  for (let r = 0; r < ROWS; r++) {
+    ctx.fillStyle = CEREAL_ROWS[r].color;
+    for (let c = 0; c < COLS; c++) ctx.fillRect(bx(c), by(r), BW, BH);
+  }
+  ctx.globalAlpha = 1;
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  ctx.font = '52px Impact, sans-serif';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 28;
+  ctx.fillText('CEREAL', W / 2, H / 2 - 55);
+  ctx.fillText('BREAKER', W / 2, H / 2 + 5);
+
+  ctx.font = '13px Impact, sans-serif';
+  ctx.fillStyle = '#00ffff';
+  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 10;
+  ctx.fillText('HI SCORE: ' + hiScore, W / 2, H / 2 + 58);
+
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = '#7755aa';
+  ctx.font = '11px Impact, sans-serif';
+  ctx.fillText('MOUSE OR ARROW KEYS TO MOVE', W / 2, H / 2 + 88);
+  ctx.fillText('CLICK OR SPACE TO LAUNCH', W / 2, H / 2 + 106);
+
+  ctx.font = '15px Impact, sans-serif';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 14;
+  ctx.fillText('[ CLICK OR SPACE TO START ]', W / 2, H / 2 + 140);
+
+  ctx.shadowBlur = 0;
+  ctx.textBaseline = 'alphabetic';
+}
+
+function drawHUD() {
+  ctx.textBaseline = 'middle';
+  const y = 24;
+
+  ctx.font = '13px Impact, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 8;
+  ctx.fillText('SCORE  ' + score, 10, y);
+
+  ctx.textAlign = 'right';
+  ctx.fillStyle = '#5533aa';
+  ctx.shadowBlur = 0;
+  ctx.fillText('HI  ' + hiScore, W - 10, y);
+
+  // Lives as spoon emojis
+  ctx.textAlign = 'center';
+  ctx.font = '16px sans-serif';
+  let s = '';
+  for (let i = 0; i < Math.max(0, lives); i++) s += '🥄';
+  ctx.fillText(s, W / 2, y);
+
+  ctx.textBaseline = 'alphabetic';
+}
+
+function drawBricks() {
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      if (!bricks[r][c].alive) continue;
+      const x = bx(c), y = by(r);
+      const col = bricks[r][c].color;
+
+      ctx.shadowColor = col; ctx.shadowBlur = 6;
+      ctx.globalAlpha = 0.22;
+      ctx.fillStyle = col;
+      ctx.fillRect(x, y, BW, BH);
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = col;
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(x + 0.75, y + 0.75, BW - 1.5, BH - 1.5);
+      ctx.shadowBlur = 0;
+    }
+  }
+}
+
+function drawPaddle() {
+  const px = paddleX - PW / 2;
+  const grad = ctx.createLinearGradient(px, PY, px, PY + PH);
+  grad.addColorStop(0, '#aaffff');
+  grad.addColorStop(1, '#009999');
+  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 20;
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(px, PY, PW, PH, 5);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+}
+
+function drawBall() {
+  // Glow halo
+  const grad = ctx.createRadialGradient(ballX, ballY, 0, ballX, ballY, BR * 3);
+  grad.addColorStop(0,    'rgba(255,255,255,0.9)');
+  grad.addColorStop(0.35, 'rgba(200,170,255,0.5)');
+  grad.addColorStop(1,    'rgba(100,50,200,0)');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(ballX, ballY, BR * 3, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 12;
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(ballX, ballY, BR, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+}
+
+function drawLaunchPrompt() {
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = '11px Impact, sans-serif';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 8;
+  ctx.fillText('CLICK / SPACE TO LAUNCH', W / 2, H - 16);
+  ctx.shadowBlur = 0;
+  ctx.textBaseline = 'alphabetic';
+}
+
+function drawOverlay(title, sub, prompt) {
+  ctx.fillStyle = 'rgba(5, 0, 16, 0.82)';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+
+  ctx.font = '46px Impact, sans-serif';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 26;
+  ctx.fillText(title, W / 2, H / 2 - 40);
+
+  ctx.font = '18px Impact, sans-serif';
+  ctx.fillStyle = '#00ffff';
+  ctx.shadowColor = '#00ffff'; ctx.shadowBlur = 10;
+  ctx.fillText(sub, W / 2, H / 2 + 8);
+
+  ctx.font = '13px Impact, sans-serif';
+  ctx.fillStyle = '#ff00cc';
+  ctx.shadowColor = '#ff00cc'; ctx.shadowBlur = 8;
+  ctx.fillText(prompt, W / 2, H / 2 + 52);
+
+  ctx.shadowBlur = 0; ctx.textBaseline = 'alphabetic';
+}
+
+// ── Action handler ─────────────────────────────────────────────
+function handleAction() {
+  if (state === 'intro') {
+    initGame();
+    state = 'playing';
+  } else if (state === 'playing' && ballOnPaddle) {
+    launchBall();
+  } else if (state === 'gameover' || state === 'win') {
+    initGame();
+    state = 'playing';
+  }
+}
+
+// ── Input ──────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  keysDown[e.key] = true;
+  if (e.key === ' ') { e.preventDefault(); handleAction(); }
+  if (e.key.startsWith('Arrow')) e.preventDefault();
+});
+document.addEventListener('keyup', e => { delete keysDown[e.key]; });
+
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  mouseX = (e.clientX - r.left) * (W / r.width);
+});
+canvas.addEventListener('click', () => handleAction());
+
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const r = canvas.getBoundingClientRect();
+  mouseX = (e.touches[0].clientX - r.left) * (W / r.width);
+}, { passive: false });
+
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  const r = canvas.getBoundingClientRect();
+  mouseX = (e.touches[0].clientX - r.left) * (W / r.width);
+  handleAction();
+}, { passive: false });
+
+// D-pad buttons
+const btnLeft   = document.getElementById('btn-left');
+const btnRight  = document.getElementById('btn-right');
+const btnLaunch = document.getElementById('btn-launch');
+
+function holdBtn(btn, down, up) {
+  btn.addEventListener('mousedown',  e => { e.preventDefault(); down(); });
+  btn.addEventListener('mouseup',    e => { e.preventDefault(); up(); });
+  btn.addEventListener('mouseleave', () => up());
+  btn.addEventListener('touchstart', e => { e.preventDefault(); down(); }, { passive: false });
+  btn.addEventListener('touchend',   e => { e.preventDefault(); up(); },   { passive: false });
+}
+
+holdBtn(btnLeft,  () => { btnLeftDown  = true;  }, () => { btnLeftDown  = false; });
+holdBtn(btnRight, () => { btnRightDown = true;  }, () => { btnRightDown = false; });
+btnLaunch.addEventListener('click', () => handleAction());
+btnLaunch.addEventListener('touchstart', e => { e.preventDefault(); handleAction(); }, { passive: false });
+
+// ── Game loop ──────────────────────────────────────────────────
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+})();
+</script>
+
+</body>
+</html>
