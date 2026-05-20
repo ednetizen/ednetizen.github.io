@@ -256,6 +256,13 @@ function die() {
 
 // ── Drawing ───────────────────────────────────────────────────────────────────
 
+function dirToAngle(d) {
+  if (d.x ===  1) return  Math.PI / 2;   // right
+  if (d.x === -1) return -Math.PI / 2;   // left
+  if (d.y ===  1) return  Math.PI;       // down
+  return 0;                               // up (natural orientation)
+}
+
 function draw() {
   const now = Date.now();
 
@@ -271,17 +278,22 @@ function draw() {
     ctx.beginPath(); ctx.moveTo(0, i * CELL);    ctx.lineTo(W, i * CELL); ctx.stroke();
   }
 
-  // Food — pulsing glow
+  // Food — cereal bowl emoji with pulsing glow behind it
   const pulse = 0.5 + 0.5 * Math.sin(now / 220);
   const fx = food.x * CELL + CELL / 2;
   const fy = food.y * CELL + CELL / 2;
   ctx.save();
   ctx.shadowColor = cerealType.color;
-  ctx.shadowBlur  = 8 + 12 * pulse;
+  ctx.shadowBlur  = 10 + 14 * pulse;
   ctx.fillStyle   = cerealType.color;
   ctx.beginPath();
-  ctx.arc(fx, fy, CELL / 2 - 2, 0, Math.PI * 2);
+  ctx.arc(fx, fy, CELL / 2 - 3, 0, Math.PI * 2);
   ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.font          = '14px serif';
+  ctx.textAlign     = 'center';
+  ctx.textBaseline  = 'middle';
+  ctx.fillText('🥣', fx, fy);
   ctx.restore();
 
   // Snake — head bright cyan, body fades to purple
@@ -292,9 +304,17 @@ function draw() {
 
     ctx.save();
     if (isHead) {
-      ctx.fillStyle   = '#00ffff';
+      // Draw spoon emoji rotated to face movement direction
+      const cx = x * CELL + CELL / 2;
+      const cy = y * CELL + CELL / 2;
       ctx.shadowColor = '#00ffff';
       ctx.shadowBlur  = 14;
+      ctx.translate(cx, cy);
+      ctx.rotate(dirToAngle(dir));
+      ctx.font         = '16px serif';
+      ctx.textAlign    = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🥄', 0, 0);
     } else {
       const r = Math.round(t * 90);
       const g = Math.round(200 * (1 - t * 0.85));
@@ -302,10 +322,10 @@ function draw() {
       ctx.fillStyle   = `rgb(${r},${g},${b})`;
       ctx.shadowColor = ctx.fillStyle;
       ctx.shadowBlur  = 5;
+      ctx.beginPath();
+      ctx.roundRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2, 3);
+      ctx.fill();
     }
-    ctx.beginPath();
-    ctx.roundRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2, isHead ? 6 : 3);
-    ctx.fill();
     ctx.restore();
   }
 
