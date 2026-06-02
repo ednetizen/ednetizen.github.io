@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheerios Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #7</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/cheerios-review.png" alt="Cheerios" width="240" height="240">
+        <div>
+          <div class="post-meta">MAY 28, 2026 &nbsp;·&nbsp; WEEKLY DROP #7</div>
+          <div class="post-title">Cheerios Feel Like the<br>Default Settings of Cereal.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">7 <span>/ 10</span></div>
+          <p class="score-note">The exact score Cheerios were designed to receive. Not life changing. Not offensive. Just solid.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">3 <span>/ 10</span></div>
+          <p class="score-note">"Boring snooze fest for babies." Violent critique. Also not entirely inaccurate.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">6 <span>/ 10</span></div>
+          <p class="score-note">Probably where most people honestly sit with Cheerios emotionally. They are fine. The issue is that "fine" is the entire brand.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Cheerios are what happens when a cereal refuses to take any risks for over eighty years and somehow survives entirely off vibes, routine, and pediatrician approval. This cereal is not exciting. It is barely even sweet. Cheerios exist in a category completely separate from the rest of the cereal aisle, somewhere between "breakfast" and "background noise."</p>
+
+        <p>Nobody has ever ripped open a box of Cheerios with adrenaline. Nobody is sprinting to the kitchen at midnight thinking "I need circles immediately." Cheerios are calm. Too calm. The cereal equivalent of sitting in a waiting room with beige walls.</p>
+
+        <div class="post-highlight">Danielle came through with a respectable 7 out of 10, which honestly feels like the exact score Cheerios were designed to receive. Not life changing. Not offensive. Just solid. Cheerios are reliable in the way khaki pants are reliable. They show up, do their job, and avoid causing problems.</div>
+
+        <p>Ang immediately rejected the entire experience. 3 out of 10. "Boring snooze fest for babies." Violent critique. Also not entirely inaccurate. Cheerios absolutely feel like the first cereal every human being consumes before developing a personality. There is something deeply infant coded about them. Tiny soft circles. Gentle crunch. No strong flavors. This cereal feels like it should come with a nap afterward.</p>
+
+        <p>Emily landed at a 6 out of 10, which is probably where most people honestly sit with Cheerios emotionally. They are fine. More than fine, honestly. The issue is that "fine" is the entire brand. Nobody passionately loves Cheerios, but nobody can fully eliminate them from society either. They are permanently lingering in kitchens, office break rooms, and your grandparents' pantry.</p>
+
+        <div class="post-highlight">The weirdest thing about Cheerios is how many forms they exist in now. Honey Nut Cheerios. Multi Grain Cheerios. Chocolate Cheerios. Frosted Cheerios. The original cereal somehow turned into a cinematic universe trying desperately to prove it has range.</div>
+
+        <p>But original Cheerios remain stubbornly plain. Every bite tastes exactly like the color beige would if it became edible. And somehow that neutrality becomes comforting after a while. It is impossible to get overwhelmed by Cheerios. The cereal has the emotional intensity of a thermostat.</p>
+
+        <p>Also, this cereal gets soggy with incredible speed. You have maybe six business minutes before the texture fully collapses into oat bubbles.</p>
+
+        <p>Final verdict: Cheerios are simple, safe, and almost aggressively dependable. Danielle respects the consistency, Ang wants the cereal to develop a personality, Emily sees enough value to keep it above average, and the rest of us will probably continue eating it forever whether we are excited about it or not.</p>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>aggressively dependable</li>
+            <li>edible beige</li>
+            <li>infant coded</li>
+            <li>soggy in six business minutes</li>
+            <li>the emotional intensity of a thermostat</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
