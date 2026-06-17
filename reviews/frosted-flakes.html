@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frosted Flakes Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #8</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/frosted_flakes_review.png" alt="Frosted Flakes" width="240" height="240">
+        <div>
+          <div class="post-meta">JUNE 4, 2026 &nbsp;·&nbsp; WEEKLY DROP #8</div>
+          <div class="post-title">Frosted Flakes Are Running Purely on Sugar and Tony the Tiger's Reputation.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">15 <span>/ 17</span></div>
+          <p class="score-note">"A little basic but a classic and pretty yummy." The voice of reason eats the cereal and goes home.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">100 <span>/ 100</span></div>
+          <p class="score-note">"Show me someone who doesn't know Tony. SHOW THEM TO ME." A lifetime loyalist and day one supporter.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">2 <span>/ 10</span></div>
+          <p class="score-note">"Sometimes a good high snack." A brutal rejection and a glowing recommendation in the same breath.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Frosted Flakes might be the most confident cereal ever created. No gimmicks, no marshmallows, no weird flavor combinations. Just sugar-coated corn flakes and a tiger who has somehow carried the brand harder than most celebrity endorsements ever could.</p>
+
+        <p>This cereal has absolutely no business being as culturally untouchable as it is. On paper, it is incredibly simple. In practice, it has survived generations purely off consistency, nostalgia, sugar, and Tony the Tiger screaming positive affirmations at America for the better part of a century.</p>
+
+        <p>Danielle came through with a 15 out of 17 and honestly captured the entire experience perfectly.</p>
+
+        <div class="post-highlight">"A little basic but a classic and pretty yummy." Exactly.</div>
+
+        <p>Danielle has somehow become the voice of reason in this operation. While the rest of us are either fighting in the comments or launching full-scale investigations into cereal mascots, Danielle consistently shows up, eats the cereal, gives a rational assessment, and goes home. Frosted Flakes are good. They're basic. They're yummy. End of report.</p>
+
+        <p>Ang immediately turned this into a full defense of the Frosted Flakes legacy. 100 out of 100.</p>
+
+        <div class="post-highlight">"This cereal is awesome. And it's got Tony the Tiger, who has been carrying the Frosted Flakes franchise on his back for generations. Show me someone who doesn't know Tony. SHOW THEM TO ME. You can't, because they don't exist. And rightfully so. If you don't know Tony the Tiger, I have questions. Serious questions."</div>
+
+        <p>To be fair, this is not a new position. Frosted Flakes have been Ang's favorite cereal since before she could even say "Frosted Flakes." Lifetime loyalist. Day one supporter. Some people outgrow childhood obsessions. Ang looked Tony the Tiger in the eye and said, "I'm with him." If Tony ever runs for public office, she's putting a yard sign out front, donating to the campaign, and arguing with strangers on the internet who dare question his qualifications.</p>
+
+        <p>And honestly, she's got a point. Tony the Tiger isn't even just a mascot anymore. He is cereal royalty. There are probably people who have never eaten Frosted Flakes who still know exactly who Tony is. Kellogg's accidentally created the Sue Bird of breakfast. At this point, Frosted Flakes should have 4 WNBA championships, 5 Olympic gold medals, 4 World Cup gold medals, and a Hall of Fame induction under its belt. Tony has spent decades carrying this franchise with elite consistency, zero scandals, and a level of name recognition most mascots can only dream about. The man is a first-ballot Breakfast Hall of Famer.</p>
+
+        <p>Emily somehow managed to both recommend and reject Frosted Flakes at the exact same time. 2 out of 10. "Sometimes a good high snack."</p>
+
+        <p>At this point, we're not entirely convinced Emily is reviewing cereal anymore. We think she's here exclusively for the hot takes and to start problems.</p>
+
+        <p>Because let's unpack this for a second. A cereal earning the endorsement "good high snack" should not immediately be followed by a 2 out of 10. Those two statements are at war with each other.</p>
+
+        <div class="post-highlight">Emily reviews cereal like a defense attorney who has already decided the defendant is guilty. The verdict is coming no matter what evidence is presented. Every week she arrives with a score locked and loaded, and then spends the rest of the review accidentally making a case for why the cereal is actually good.</div>
+
+        <p>Somehow Frosted Flakes managed to earn both a brutal rejection and a glowing recommendation in the same sentence. That's elite hater behavior.</p>
+
+        <p>And honestly? We need it. Danielle keeps us grounded. Ang is prepared to defend Tony the Tiger with her life. Emily's job is to walk into the room, throw a chair through a window, and keep the ratings interesting.</p>
+
+        <p>The biggest strength of Frosted Flakes is that they know exactly what they are. They are not pretending to be healthy. They are not trying to seem sophisticated. They are sugary flakes with confidence and a tiger mascot yelling motivation at you from the shelf. There is something deeply respectable about that level of self-awareness.</p>
+
+        <p>And honestly, the leftover milk deserves credit too. Quietly one of the strongest cereal milk performances in the game. Nobody talks about it enough. Frosted Flakes milk has been putting up Hall of Fame numbers for decades with zero recognition.</p>
+
+        <p>Final verdict: Frosted Flakes are simple, shameless, and still wildly effective. Danielle respects the consistency, Ang is prepared to defend Tony the Tiger in a court of law, Emily is mostly here to cause chaos, and somehow Frosted Flakes are still dominating breakfast nearly unchanged after all these years.</p>
+
+        <div class="post-highlight">They're not innovative. They're not complicated. They're just gr-r-reat, and annoyingly, they're kind of right about it.</div>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>simple, shameless, effective</li>
+            <li>Tony is cereal royalty</li>
+            <li>the Sue Bird of breakfast</li>
+            <li>elite hater behavior from Emily</li>
+            <li>the leftover milk is underrated</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
