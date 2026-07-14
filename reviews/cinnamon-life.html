@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinnamon Life Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #10</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/cinnamon-life-review.png" alt="Cinnamon Life" width="240" height="240">
+        <div>
+          <div class="post-meta">JUNE 18, 2026 &nbsp;·&nbsp; WEEKLY DROP #10</div>
+          <div class="post-title">Cinnamon Life Is a Dessert in a Cardigan.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">8 <span>/ 20</span></div>
+          <p class="score-note">The score of someone trying to stay objective while the cereal works on them in the background.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">9 <span>/ 10</span></div>
+          <p class="score-note">"This cereal is the bomb.com. It's good in milk, as is, with extra sugar dumped on it or dry."</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">9 <span>/ 10</span></div>
+          <p class="score-note">"They are cheating because there's just sugar granules inside the Chex. That's the crunch." (It is not Chex.)</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Cinnamon Life has no business being this good. The box looks like something your aunt keeps in a plastic container above the fridge next to the expired Bisquick, and yet you will end up standing at the counter eating it dry by the fistful like a raccoon that got into the spice cabinet.</p>
+
+        <p>No mascot. No marshmallows, no shapes, no dye that turns the milk a color. Just little woven squares carrying more cinnamon sugar confidence than the packaging earns.</p>
+
+        <p>Danielle gave it an 8 out of 20 — the score of someone trying to stay objective while the cereal works on them in the background. That's the whole trick with Cinnamon Life. It looks wholesome enough to trust and tastes close enough to dessert that you feel mildly scammed for enjoying it.</p>
+
+        <div class="post-highlight">Ang: 9 out of 10. "This cereal is the bomb.com. It's good in milk, as is, with extra sugar dumped on it or dry."</div>
+
+        <p>Most cereals need ideal conditions. This one performs anywhere — breakfast, midnight, one-handed on the way through the kitchen. Her warning about the bag is worth repeating, though. One aggressive grab and the bottom of the box becomes cinnamon rubble.</p>
+
+        <p>Emily, also 9 out of 10, went full forensics: "They are cheating because there's just sugar granules inside the Chex. That's the crunch." This is Life. It is not Chex. Nobody corrected her, and she was right anyway, which is the frustrating part. There is sugar packed into the walls of every little square. The crunch isn't the oat. The crunch is the payload.</p>
+
+        <p>Texture is what carries it. Crisp, soft, sugary, airy, somehow all at the same time, and it survives milk far longer than it should. Most cereals panic on contact. Cinnamon Life just sits there, composed, waiting you out.</p>
+
+        <div class="post-highlight">Then there's the leftover milk, which is essentially liquid cinnamon toast and is the reason you should not pour a full bowl if you have somewhere to be.</div>
+
+        <p>Low profile, structurally fragile, weirdly addictive. Danielle is still fighting it. Ang will eat it under any conditions available to her. Emily solved the crime while investigating the wrong cereal and gave it a 9 anyway. Quietly one of the strongest cereals in the aisle, and it isn't even trying.</p>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>a dessert in a cardigan</li>
+            <li>eaten dry by the fistful like a raccoon</li>
+            <li>the crunch is the payload</li>
+            <li>the bag is structurally fragile</li>
+            <li>leftover milk is liquid cinnamon toast</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
