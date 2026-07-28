@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashi GO Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #11</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/kashi_go_review.png" alt="Kashi GO" width="240" height="240">
+        <div>
+          <div class="post-meta">JUNE 25, 2026 &nbsp;·&nbsp; WEEKLY DROP #11</div>
+          <div class="post-title">Kashi GO Tastes Like the Final Stage of Giving Up.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">3 <span>/ 47</span></div>
+          <p class="score-note">"Like eating little sticks from your yard." Chewing it feels less like eating and more like resistance training.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">0 <span>/ 10,000</span></div>
+          <p class="score-note">"Just no. Don't buy this, it's not even cereal." Would report you to Animal Control.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">0 <span>/ 10</span></div>
+          <p class="score-note">"Only buy if you like to eat twigs and dirt or you hate yourself."</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Kashi GO is what happens when a cereal completely loses interest in bringing anyone happiness. This is not breakfast. This is a disciplinary action.</p>
+
+        <p>Everything about the box is deeply misleading. It sits there with calming colors and words like "protein" and "fiber" trying to convince you this is a positive life choice. Meanwhile inside the bag is what appears to be broken hamster habitat material held together by disappointment.</p>
+
+        <p>The first bite is genuinely shocking. Not because it tastes bad in a normal way. Bad cereal is easy to understand. Kashi GO tastes like it was created by someone who thinks joy is a distraction. It is dry, aggressive, weirdly dusty, and somehow emotionally judgmental at the same time.</p>
+
+        <div class="post-highlight">Danielle came through with a 3 out of 47 and absolutely buried this cereal. "Like eating little sticks from your yard."</div>
+
+        <p>Exactly. Not even metaphorically. Every spoonful feels like something you should have swept off a driveway. And somehow it keeps crunching forever. The jawline comment is also critical information because chewing Kashi GO feels less like eating and more like resistance training.</p>
+
+        <p>Ang didn't even bother pretending this deserved a serious review. 0 out of 10,000. "Just no. Don't buy this, it's not even cereal." Fair enough. At that point, the discussion had shifted from whether Kashi GO was good to whether it should legally be allowed in the cereal aisle. According to Ang, it wasn't fit for human consumption, probably wasn't appropriate for anything with a heartbeat, and if she caught someone feeding it to wildlife, she'd report them to Animal Control.</p>
+
+        <p>Emily somehow landed in exactly the same place. 0 out of 10. "Only buy if you like to eat twigs and dirt or you hate yourself." Different scale, identical conclusion.</p>
+
+        <div class="post-highlight">For the first time in Extreme Cereal history, Ang and Emily reached complete bipartisan agreement. If Kashi GO were the last cereal left on Earth, we'd simply stop eating cereal.</div>
+
+        <p>If someone brought this to our house, we'd assume they are evil and would need to kick them out.</p>
+
+        <p>Kashi GO somehow tastes like nature in the least inspiring way possible. Not fresh fruit nature. Not honey oat nature. More like "fell face first into a hiking trail" nature.</p>
+
+        <p>The milk does not help either. Most cereals improve with milk. Kashi GO just becomes wet wood. Every bite feels like your mouth is processing packing peanuts soaked in sadness. Even the milk seems disappointed to be involved.</p>
+
+        <p>And the craziest part is that people still buy it. There are fully grown adults voluntarily eating this before work while pretending they enjoy it. Somewhere right now somebody is chewing Kashi GO while replying "Happy Monday!" in Slack and honestly that is terrifying.</p>
+
+        <p>Final verdict: Kashi GO is not a cereal, it is an endurance event. Danielle compared it to yard waste, Ang tried to remove it from the cereal category entirely, Emily agreed it was only for people actively at war with themselves, and somehow none of that feels exaggerated enough.</p>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>a disciplinary action, not breakfast</li>
+            <li>little sticks from your yard</li>
+            <li>rare Ang &amp; Emily bipartisan agreement</li>
+            <li>milk turns it to wet wood</li>
+            <li>an endurance event</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
