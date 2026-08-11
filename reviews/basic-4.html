@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic 4 Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .hof-badge {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #3a2600;
+    background: linear-gradient(180deg, #ffe680 0%, #ffd700 45%, #d4a017 100%);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+    padding: 6px 16px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    border: 1px solid #fff2b0;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ffd700;
+    text-shadow: 0 0 16px #ffd700, 3px 3px 0 #7a5c00;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 22px rgba(255, 215, 0, 0.5);
+    background: rgba(255, 215, 0, 0.04);
+  }
+
+  .editor-note {
+    border: 1px solid #ffd700;
+    background: rgba(255, 215, 0, 0.06);
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.08);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .editor-note-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    margin-bottom: 8px;
+  }
+
+  .editor-note p {
+    font-size: 13px;
+    color: #e8dca0;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ffd700;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 215, 0, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ffd700;
+    text-shadow: 0 0 14px #ffd700;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #8a6d1a;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #ffd700;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ffd700;
+    text-shadow: 0 0 6px #ffd700;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #7a5c00;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">🏆 CEREAL REVIEW — WEEKLY DROP #12 — HALL OF FAME</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="hof-badge">🏆 HALL OF FAME &nbsp;::&nbsp; EMILY'S #1 ALL-TIME FAVORITE 🏆</div>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/basic-4-review.png" alt="Basic 4" width="240" height="240">
+        <div>
+          <div class="post-meta">JULY 2, 2026 &nbsp;·&nbsp; WEEKLY DROP #12</div>
+          <div class="post-title">Basic 4 Looks Like Office Break Room Cereal but Secretly Dominates the Entire Aisle.</div>
+        </div>
+      </div>
+
+      <div class="editor-note">
+        <div class="editor-note-label">★ EDITOR'S NOTE ★</div>
+        <p>Full disclosure: this is our reviewer Emily's #1 all-time favorite cereal. She has a bowl at 4:45 every single morning before a 5:15am gym class. As your most frugal reviewer, she would like to communicate that the best price is currently obtained via Walmart delivery. This one is personal.</p>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">1,091 <span>/ 5</span></div>
+          <p class="score-note">"The best cereal you've never heard of. My personal favorite." Historic score inflation. A recruitment effort.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">10 <span>/ 10</span></div>
+          <p class="score-note">"Thought I didn't like it and missed out for basically all of my life... now the rest of my life is dedicated to making up for lost time with this boss cereal."</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">100 <span>/ 100</span></div>
+          <p class="score-note">"Perfect never change except maybe less yogurt pieces." The cleanest possible score.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Basic 4 sounds fake. It sounds like the placeholder name for a cereal they forgot to brand before the meeting started. Nothing about the box prepares you for what is actually waiting inside. You pick it up expecting disappointment, maybe mild competence at best, and then suddenly you are questioning why this cereal is not getting treated like a national treasure.</p>
+
+        <p>This cereal has absolutely no marketing aura. No mascot. No aggressive color scheme. No cartoon trying to sell you athletic greatness. Just a quiet little box sitting on the shelf like it has taxes to file. Meanwhile inside is one of the most stacked cereal lineups ever assembled. Flakes, fruit, clusters, yogurt pieces, texture variety, sweetness, crunch, all operating together like they have been training for this moment their entire lives.</p>
+
+        <div class="post-highlight">Danielle completely lost professionalism immediately. 1,091 out of 5. Historic score inflation. "The best cereal you've never heard of. My personal favorite."</div>
+
+        <p>That is not a review anymore, that is a recruitment effort. Fair. Basic 4 feels like discovering a local restaurant that accidentally clears every major chain. You almost get protective over it because the second too many people find out, the magic could disappear.</p>
+
+        <p>Ang experienced full cereal regret. 10 out of 10. "Thought I didn't like it and missed out for basically all of my life and now the rest of my life is dedicated to making up for lost time with this boss cereal." Incredible emotional arc. Basic 4 absolutely has the energy of a cereal you unfairly ignored for years because the box looked like it belonged in a waiting room. Then you finally try it and suddenly your entire cereal history needs reevaluation.</p>
+
+        <p>Emily came through with the cleanest possible score. 100 out of 100. "Perfect never change except maybe less yogurt pieces." That is trust. That is someone looking directly at a cereal and saying "you almost achieved perfection, just relax slightly with the yogurt." Fair critique. The yogurt pieces occasionally show up acting like they own the place. She has a bowl at 4:45 every single morning before a 5:15am gym class. As your most frugal reviewer, she would like to communicate the best price is obtained via Walmart delivery right now.</p>
+
+        <div class="post-highlight">The biggest strength of Basic 4 is that every bite feels loaded. Most cereals have dead bites where nothing interesting happens. Basic 4 refuses to let the bowl get boring.</div>
+
+        <p>There is always something happening. Crunch, sweetness, fruit, texture shifts, little moments of chaos everywhere. It feels less like cereal and more like somebody accidentally perfected trail mix breakfast technology.</p>
+
+        <p>And unlike cereals that completely collapse after five minutes in milk, Basic 4 keeps fighting. It stays alive longer than expected. Resilient. Veteran behavior.</p>
+
+        <p>Final verdict: Basic 4 is criminally overlooked, weirdly elite, and operating far above its branding. Danielle is campaigning for it publicly, Ang is trying to recover from years of missed opportunities, Emily basically declared it perfect, and honestly this cereal feels like one of the biggest hidden gems in the entire aisle.</p>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>criminally overlooked, weirdly elite</li>
+            <li>trail mix breakfast technology</li>
+            <li>no dead bites, ever</li>
+            <li>survives the milk — veteran behavior</li>
+            <li>best price: Walmart delivery</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#8a6d1a; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
