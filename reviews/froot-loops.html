@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Froot Loops Review — Extreme Cereal</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .post-meta {
+    font-family: Impact, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6644aa;
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: Impact, sans-serif;
+    font-size: 36px;
+    color: #ff00cc;
+    text-shadow: 0 0 16px #ff00cc, 3px 3px 0 #4400aa;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .review-header-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .post-body {
+    font-size: 14px;
+    color: #c0b0e0;
+    line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .post-body p {
+    margin-bottom: 18px;
+  }
+
+  .post-body p:first-child {
+    font-size: 16px;
+    color: #e0d0ff;
+    font-style: italic;
+  }
+
+  .post-highlight {
+    border-left: 3px solid #ff00cc;
+    padding: 12px 18px;
+    margin: 24px 0;
+    background: rgba(255, 0, 204, 0.05);
+    font-family: Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ff00cc;
+    text-shadow: 0 0 8px rgba(255, 0, 204, 0.4);
+    line-height: 1.6;
+  }
+
+  .scores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .score-card {
+    background: rgba(15, 0, 40, 0.9);
+    border: 1px solid #8b00ff;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .score-name {
+    font-family: Impact, sans-serif;
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .score-number {
+    font-family: Impact, sans-serif;
+    font-size: 38px;
+    color: #ff00cc;
+    text-shadow: 0 0 14px #ff00cc;
+    line-height: 1;
+  }
+
+  .score-number span {
+    font-size: 18px;
+    color: #4d2299;
+  }
+
+  .score-note {
+    font-size: 11px;
+    color: #9070b0;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .final-thoughts {
+    border: 1px solid #8b00ff;
+    background: rgba(15, 0, 40, 0.9);
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+
+  .final-thoughts-label {
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 10px;
+  }
+
+  .final-thoughts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .final-thoughts ul li {
+    font-family: Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #c0b0e0;
+    padding: 3px 0;
+  }
+
+  .final-thoughts ul li::before {
+    content: "★ ";
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #00ffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00ffff;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover { color: #ff00cc; text-shadow: 0 0 8px #ff00cc; }
+
+  .post-footer-rule {
+    border: none;
+    border-top: 1px solid #2d0060;
+    margin: 32px 0 20px;
+  }
+
+  @media (max-width: 900px) {
+    .scores-grid { grid-template-columns: 1fr; }
+    .review-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body class="review-page">
+
+<div class="page-wrap">
+
+  <!-- LOGO -->
+  <div class="window logo-window">
+    <div class="window-content">
+      <img src="../images/extreme-cereal-background.png" alt="Extreme Cereal" style="max-width:100%; display:block; margin:0 auto;">
+      <div class="logo-sub">★ THE MOST EXTREME CEREAL SITE IN THE KNOWN UNIVERSE ★</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="../index.html">🏠 HOME</a>
+    <a href="../about.html">👥 ABOUT US</a>
+    <a href="../reviews.html" class="active">📋 CEREAL REVIEWS</a>
+    <a href="../blog.html">📝 BLOG</a>
+    <a href="../arcade.html">🕹️ ARCADE</a>
+  </div>
+
+  <!-- REVIEW -->
+  <div class="window" style="margin-top:8px;">
+    <div class="title-bar">📋 CEREAL REVIEW — WEEKLY DROP #14</div>
+    <div class="window-content" style="padding: 24px 28px;">
+
+      <a class="back-link" href="../reviews.html">← BACK TO REVIEWS</a>
+
+      <div class="review-header">
+        <img class="review-header-img" src="../images/froot-loops-review.PNG" alt="Froot Loops" width="240" height="240">
+        <div>
+          <div class="post-meta">OCTOBER 24, 2026 &nbsp;·&nbsp; WEEKLY DROP #14</div>
+          <div class="post-title">Froot Loops Has Been Spelling Fruit Wrong Since 1963, and We've Had Enough.</div>
+        </div>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <span class="score-name">DANIELLE</span>
+          <div class="score-number">6 <span>/ 10</span></div>
+          <p class="score-note">Good flavor, but the texture is somehow too crunchy. An interesting complaint about a cereal whose primary job is to crunch.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">ANG</span>
+          <div class="score-number">5 <span>/ 9</span></div>
+          <p class="score-note">Wants to know why all the colors taste the same. A reasonable question nobody at Kellogg's has ever answered.</p>
+        </div>
+        <div class="score-card">
+          <span class="score-name">EMILY</span>
+          <div class="score-number">— <span></span></div>
+          <p class="score-note">"I DONT LIKE THE WAY THEY SPELL IT I REALLY DONT." No further rating provided. None was needed.</p>
+        </div>
+      </div>
+
+      <div class="post-body">
+
+        <p>Froot Loops has been a fixture of American breakfast tables for more than six decades, and in that time, millions of people have willingly purchased a product whose name contains a spelling error visible from across the grocery store. The cereal comes in an assortment of bright colors, all of which taste essentially identical, and is represented by a tropical bird who has spent his entire career encouraging consumers to follow their noses instead of asking questions. For most people, this is simply breakfast. For the Extreme Cereal review panel, it has become a surprisingly contentious issue.</p>
+
+        <p>Danielle gives Froot Loops a 6 out of 10, describing the flavor as good but the texture as somehow too crunchy. This is an interesting distinction, considering that crunch is one of the primary responsibilities of cereal. Nevertheless, Danielle believes Froot Loops may be taking that responsibility a little too seriously. She doesn't dislike it. She'll eat it occasionally. But she's not going to wake up excited about a breakfast that requires this much commitment from her jaw. Her review is measured, reasonable, and focused almost entirely on the actual eating experience, which will become increasingly unusual as this investigation continues.</p>
+
+        <p>Ang awards Froot Loops a 5 out of 9 and raises a question that should probably have been addressed during the product's original development: why do all the colors taste the same? A bowl of Froot Loops contains an impressive visual assortment, suggesting that each color might offer something different. Red could be cherry. Yellow could be lemon. Orange practically assigns itself. Instead, every loop delivers the same flavor, regardless of appearance. Ang isn't asking Kellogg's to reinvent breakfast. She's asking the company to explain why it created so many different colors if it only intended to manufacture one taste.</p>
+
+        <p>Consider the amount of effort involved in producing this entirely decorative rainbow. Someone had to select the colors, approve them, manufacture them, and make sure they were distributed throughout every box. Entire production processes exist to ensure that consumers receive a balanced assortment of loops that provide absolutely no flavor distinction whatsoever. A child could carefully separate an entire bowl by color, expecting several unique experiences, only to discover they've spent twenty minutes organizing identical pieces of cereal. This is the kind of disappointment that could have been prevented with a single meeting.</p>
+
+        <div class="post-highlight">A child could carefully separate an entire bowl by color, expecting several unique experiences, only to discover they've spent twenty minutes organizing identical pieces of cereal. This is the kind of disappointment that could have been prevented with a single meeting.</div>
+
+        <p>Emily, however, has declined to participate in this discussion because she has identified a problem that predates the flavor debate entirely. Her complete review was, "I DONT LIKE THE WAY THEY SPELL IT I REALLY DONT." No numerical rating. No commentary on texture. No assessment of sweetness. Emily saw the word Froot and immediately decided that whatever was happening inside the box was secondary. The repetition of "I REALLY DONT" suggests this is not a passing irritation but a deeply held position that has finally found an appropriate platform.</p>
+
+        <p>And she has a legitimate grievance. Fruit is not a difficult word. It has five letters, follows a familiar spelling pattern, and is routinely mastered by elementary school students. Kellogg's removed the U and I, replaced them with two O's, and then incorporated those O's into the packaging as though the cereal itself could serve as supporting documentation. This wasn't a typo. It was an organized decision involving marketing executives, graphic designers, packaging manufacturers, and presumably at least one person who knew how to spell fruit correctly but chose not to intervene.</p>
+
+        <div class="post-highlight">This wasn't a typo. It was an organized decision involving marketing executives, graphic designers, packaging manufacturers, and presumably at least one person who knew how to spell fruit correctly but chose not to intervene.</div>
+
+        <p>What makes Emily's objection particularly compelling is the company's apparent confidence that nobody would care. Froot Loops isn't hiding its spelling on the back of the box in small print. It's the largest word on the package. The brand has been displaying it prominently for decades, effectively daring the American public to object. And for the most part, the strategy has worked. Generations of children have grown up eating Froot Loops without questioning why their breakfast cereal uses a different alphabet from the rest of society. Emily has decided that enough is enough.</p>
+
+        <p>Toucan Sam's involvement raises additional concerns. As the public face of Froot Loops, he has spent decades telling consumers to follow their noses, despite the fact that the most obvious problems with his product can be identified simply by looking at it. He has never publicly explained the spelling. He has never addressed the lack of flavor differentiation between colors. He just keeps following that enormous beak around and expecting everyone else to do the same. It's an impressive public relations strategy for a bird with no apparent qualifications in either linguistics or food science.</p>
+
+        <p>Ultimately, the panel has reached three very different conclusions. Danielle finds Froot Loops perfectly acceptable in moderation, provided she is prepared for the crunch. Ang believes the cereal has squandered an enormous opportunity to make its colors meaningful. Emily appears prepared to challenge the entire brand on grammatical grounds, regardless of whether the cereal tastes good. All three positions are defensible, although only one has the potential to require a complete packaging redesign.</p>
+
+        <p>Final verdict: Six decades of questionable spelling, decorative fruit colors, and a toucan who refuses to answer questions.</p>
+
+        <div class="final-thoughts">
+          <div class="final-thoughts-label">FINAL THOUGHTS</div>
+          <ul>
+            <li>six decades of intentional misspelling</li>
+            <li>every color tastes identical and nobody explained why</li>
+            <li>danielle found crunch itself to be a problem</li>
+            <li>emily submitted a grievance, not a score</li>
+            <li>toucan sam has no qualifications in linguistics or food science</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="post-footer-rule">
+      <div style="font-size:11px; color:#4d2299; font-family: Impact, sans-serif; letter-spacing:1px;">EXTREME CEREAL &nbsp;·&nbsp; EST. 2026 &nbsp;·&nbsp; ALL OPINIONS ARE CORRECT</div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <p style="color:#ff00cc; text-shadow:0 0 10px #ff00cc; font-family:Impact,sans-serif; font-size:18px; letter-spacing:4px;">★ EXTREMECEREAL.COM ★</p>
+    <p style="margin-top:10px; color:#3d2266;">© EXTREMECEREAL.COM :: All Rights Reserved</p>
+    <div style="margin-top:12px; font-size:24px;">⚡🥣⚡🥣⚡🥣⚡🥣⚡</div>
+  </div>
+
+</div>
+
+</body>
+</html>
